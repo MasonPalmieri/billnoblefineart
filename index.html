@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bill Noble Fine Art</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --sea-blue: #437ea0;
+      --deep-navy: #1f3b4d;
+      --sand: #f3e4d0;
+      --offwhite: #faf8f4;
+      --accent: #c7854a;
+      --text-dark: #28323a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--offwhite);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(243, 228, 208, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(31, 59, 77, 0.12);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--deep-navy);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--deep-navy);
+      transition: width 0.2s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO / TITLE SCREEN */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 1.5rem 4rem;
+      background: linear-gradient(
+          135deg,
+          rgba(31, 59, 77, 0.75),
+          rgba(67, 126, 160, 0.75)
+        ),
+        url("https://images.pexels.com/photos/2387875/pexels-photo-2387875.jpeg") center/cover
+        no-repeat;
+      color: #fefefe;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+    }
+
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: 0.8rem;
+      margin-bottom: 1.25rem;
+      opacity: 0.85;
+    }
+
+    .hero-title {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: clamp(2.7rem, 5vw, 3.5rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      max-width: 32rem;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.6rem;
+      border: 1px solid rgba(250, 248, 244, 0.9);
+      background: rgba(243, 228, 208, 0.09);
+      color: #fdfdfd;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease-out, transform 0.1s ease-out,
+        box-shadow 0.1s ease-out;
+    }
+
+    .btn-primary {
+      background: var(--sand);
+      color: var(--deep-navy);
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-note {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* SECTIONS */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(40, 50, 58, 0.08);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-heading {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .section-heading h2 {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--deep-navy);
+    }
+
+    .section-heading p {
+      font-size: 0.95rem;
+      max-width: 20rem;
+      color: rgba(40, 50, 58, 0.72);
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      padding-top: 70%;
+      overflow: hidden;
+    }
+
+    .gallery-img-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease-out;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-meta {
+      padding: 0.9rem 1rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .gallery-meta h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .gallery-meta .year {
+      color: rgba(40, 50, 58, 0.65);
+    }
+
+    .gallery-meta .medium {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(40, 50, 58, 0.8);
+    }
+
+    /* BIO */
+    .bio-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .bio-text p + p {
+      margin-top: 1rem;
+    }
+
+    .bio-highlight {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--sand);
+      border-radius: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .bio-portrait {
+      max-width: 360px;
+      margin-left: auto;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .bio-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* MARKETPLACE */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .market-card {
+      background: white;
+      border-radius: 1.1rem;
+      padding: 1.25rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .market-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .market-meta {
+      font-size: 0.9rem;
+      color: rgba(40, 50, 58, 0.75);
+    }
+
+    .market-price {
+      margin-top: 0.25rem;
+      font-weight: 600;
+      color: var(--deep-navy);
+    }
+
+    .market-actions {
+      margin-top: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .market-actions small {
+      font-size: 0.78rem;
+      color: rgba(40, 50, 58, 0.75);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--deep-navy);
+      border-color: var(--deep-navy);
+      padding-inline: 1.2rem;
+      font-size: 0.8rem;
+    }
+
+    /* CONTACT / FOOTER */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact a {
+      color: var(--deep-navy);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(40, 50, 58, 0.7);
+      border-top: 1px solid rgba(40, 50, 58, 0.08);
+      background: #f6efe5;
+    }
+
+    /* MOBILE */
+    @media (max-width: 720px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .bio-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-portrait {
+        margin: 0;
+        max-width: 100%;
+        order: -1;
+      }
+
+      main {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Bill Noble Fine Art</div>
+      <nav>
+        <ul>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#bio">About</a></li>
+          <li><a href="#marketplace">Marketplace</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / TITLE SCREEN -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">Cape Cod • Original Paintings</div>
+      <h1 class="hero-title">Bill Noble Fine Art</h1>
+      <p class="hero-subtitle">
+        Coastal light, shifting tides, and quiet harbors — contemporary paintings
+        inspired by the shorelines and villages of Cape Cod and New England.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#gallery" class="btn btn-primary">View Gallery</a>
+        <a href="#marketplace" class="btn">Available Works</a>
+      </div>
+
+      <p class="hero-note">
+        Commissions by request • Studio visits by appointment
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <!-- GALLERY SECTION -->
+    <section id="gallery">
+      <div class="section-heading">
+        <h2>Gallery</h2>
+        <p>Selected works from the archives — a glimpse into seasons along the Cape.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- ITEM 1 -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg"
+              alt="Painting of boats in a harbor at dusk"
+            />
+          </div>
+          <div class="gallery-meta">
+            <h3>Harbor at Blue Hour</h3>
+            <div class="year">Oil on canvas, 2021</div>
+            <div class="medium">Provincetown Harbor, late summer light.</div>
+          </div>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg"
+              alt="Painting inspired by sand dunes and sea grass"
+            />
+          </div>
+          <div class="gallery-meta">
+            <h3>Dune Path</h3>
+            <div class="year">Oil on panel, 2020</div>
+            <div class="medium">A quiet walk toward the Atlantic at dusk.</div>
+          </div>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/91222/pexels-photo-91222.jpeg"
+              alt="Painting of a small coastal cottage"
+            />
+          </div>
+          <div class="gallery-meta">
+            <h3>Weathered Cottage</h3>
+            <div class="year">Acrylic on canvas, 2019</div>
+            <div class="medium">Sun-bleached shingles and salt air.</div>
+          </div>
+        </article>
+
+        <!-- ITEM 4 -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg"
+              alt="Painting of a calm ocean horizon"
+            />
+          </div>
+          <div class="gallery-meta">
+            <h3>Calm Tide</h3>
+            <div class="year">Oil on linen, 2018</div>
+            <div class="medium">Minimal horizon, shifting color fields.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BIO SECTION -->
+    <section id="bio">
+      <div class="section-heading">
+        <h2>About</h2>
+        <p>The story behind the paintings and the shorelines that shape them.</p>
+      </div>
+
+      <div class="bio-layout">
+        <div class="bio-text">
+          <p>
+            Bill Noble is a New England–based painter whose work explores the
+            intersection of memory, atmosphere, and the ever-changing coastal
+            light of Cape Cod. Working primarily in oil, Bill layers subtle
+            color fields with gestural marks to evoke the feeling of a place
+            rather than a literal depiction.
+          </p>
+          <p>
+            Raised near the Atlantic and drawn back to the Cape year after year,
+            Bill’s paintings are informed by early mornings on the harbor,
+            empty winter beaches, and the quiet geometry of wharfs, cottages, and
+            dunes. His work has been exhibited in regional galleries and is held
+            in private collections throughout the United States.
+          </p>
+          <div class="bio-highlight">
+            <strong>Artist statement:</strong>
+            “I paint the pause between tides — the brief moments where light,
+            color, and stillness line up just long enough to be noticed.”
+          </div>
+        </div>
+
+        <aside class="bio-portrait">
+          <img
+            src="https://images.pexels.com/photos/3738084/pexels-photo-3738084.jpeg"
+            alt="Portrait of the artist in a studio"
+          />
+        </aside>
+      </div>
+    </section>
+
+    <!-- MARKETPLACE SECTION -->
+    <section id="marketplace">
+      <div class="section-heading">
+        <h2>Marketplace</h2>
+        <p>
+          A selection of currently available works. To purchase or inquire, please get in touch.
+        </p>
+      </div>
+
+      <div class="market-grid">
+        <!-- AVAILABLE WORK 1 -->
+        <article class="market-card">
+          <div class="market-title">Low Tide Morning</div>
+          <div class="market-meta">
+            Oil on canvas, 18" × 24"<br />
+            Framed in natural oak
+          </div>
+          <div class="market-price">$1,200</div>
+          <div class="market-actions">
+            <button class="btn btn-outline" onclick="openInquiry('Low Tide Morning')">
+              Inquire
+            </button>
+            <small>Ships from Cape Cod, MA</small>
+          </div>
+        </article>
+
+        <!-- AVAILABLE WORK 2 -->
+        <article class="market-card">
+          <div class="market-title">Harbor Fog</div>
+          <div class="market-meta">
+            Oil on linen, 24" × 30"<br />
+            Float frame, off-white
+          </div>
+          <div class="market-price">$1,850</div>
+          <div class="market-actions">
+            <button class="btn btn-outline" onclick="openInquiry('Harbor Fog')">
+              Inquire
+            </button>
+            <small>Original work • Signed</small>
+          </div>
+        </article>
+
+        <!-- AVAILABLE WORK 3 -->
+        <article class="market-card">
+          <div class="market-title">Evening Dunes</div>
+          <div class="market-meta">
+            Acrylic on panel, 12" × 16"<br />
+            Ready to hang
+          </div>
+          <div class="market-price">$780</div>
+          <div class="market-actions">
+            <button class="btn btn-outline" onclick="openInquiry('Evening Dunes')">
+              Inquire
+            </button>
+            <small>Payment plans available</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+      <div class="section-heading" style="justify-content: center; text-align: center;">
+        <h2>Contact</h2>
+      </div>
+      <p>
+        For purchases, commissions, or studio visits, please email:
+      </p>
+      <p>
+        <a href="mailto:info@billnoblefineart.com">info@billnoblefineart.com</a>
+      </p>
+      <p>
+        or follow on Instagram:
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          @billnoblefineart
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Bill Noble Fine Art. All rights reserved.
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple email inquiry helper
+    function openInquiry(title) {
+      const subject = encodeURIComponent("Artwork Inquiry: " + title);
+      const body = encodeURIComponent(
+        "Hello Bill,\n\nI'm interested in the piece \"" +
+          title +
+          "\". Could you share availability, pricing, and shipping details?\n\nThank you,\n"
+      );
+      window.location.href = "mailto:info@billnoblefineart.com?subject=" + subject + "&body=" + body;
+    }
+  </script>
+</body>
+</html>
