@@ -104,11 +104,10 @@
       padding: 7rem 1.5rem 4rem;
       background: linear-gradient(
           135deg,
-          rgba(31, 59, 77, 0.75),
-          rgba(67, 126, 160, 0.75)
+          rgba(31, 59, 77, 0.78),
+          rgba(67, 126, 160, 0.78)
         ),
-        url("https://images.pexels.com/photos/2387875/pexels-photo-2387875.jpeg") center/cover
-        no-repeat;
+        url("Chappy.png") center/cover no-repeat;
       color: #fefefe;
       text-align: center;
     }
@@ -122,7 +121,7 @@
       letter-spacing: 0.3em;
       font-size: 0.8rem;
       margin-bottom: 1.25rem;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     .hero-title {
@@ -137,7 +136,7 @@
       font-size: 1.05rem;
       max-width: 32rem;
       margin: 0 auto 2rem;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .hero-cta {
@@ -264,16 +263,6 @@
       font-weight: 600;
     }
 
-    .gallery-meta .year {
-      color: rgba(40, 50, 58, 0.65);
-    }
-
-    .gallery-meta .medium {
-      font-style: italic;
-      font-size: 0.85rem;
-      color: rgba(40, 50, 58, 0.8);
-    }
-
     /* BIO */
     .bio-layout {
       display: grid;
@@ -326,42 +315,11 @@
       gap: 0.75rem;
     }
 
-    .market-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .market-meta {
-      font-size: 0.9rem;
-      color: rgba(40, 50, 58, 0.75);
-    }
-
-    .market-price {
-      margin-top: 0.25rem;
-      font-weight: 600;
-      color: var(--deep-navy);
-    }
-
-    .market-actions {
-      margin-top: 0.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .market-actions small {
-      font-size: 0.78rem;
-      color: rgba(40, 50, 58, 0.75);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--deep-navy);
-      border-color: var(--deep-navy);
-      padding-inline: 1.2rem;
-      font-size: 0.8rem;
+    .market-coming-soon {
+      margin-top: 1.2rem;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(40, 50, 58, 0.85);
     }
 
     /* CONTACT / FOOTER */
@@ -440,13 +398,13 @@
       <div class="hero-kicker">Cape Cod • Original Paintings</div>
       <h1 class="hero-title">Bill Noble Fine Art</h1>
       <p class="hero-subtitle">
-        Coastal light, shifting tides, and quiet harbors — contemporary paintings
-        inspired by the shorelines and villages of Cape Cod and New England.
+        Coastal light, quiet harbors, and New England villages —
+        contemporary paintings inspired by Cape Cod and the Atlantic shore.
       </p>
 
       <div class="hero-cta">
         <a href="#gallery" class="btn btn-primary">View Gallery</a>
-        <a href="#marketplace" class="btn">Available Works</a>
+        <a href="#bio" class="btn">About the Artist</a>
       </div>
 
       <p class="hero-note">
@@ -460,67 +418,157 @@
     <section id="gallery">
       <div class="section-heading">
         <h2>Gallery</h2>
-        <p>Selected works from the archives — a glimpse into seasons along the Cape.</p>
+        <p>Archived works of Bill Noble — a selection from the studio.</p>
       </div>
 
       <div class="gallery-grid">
-        <!-- ITEM 1 -->
+        <!-- BeachAccess -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
-            <img
-              src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg"
-              alt="Painting of boats in a harbor at dusk"
-            />
+            <img src="BeachAccess.png" alt="Beach Access" />
           </div>
           <div class="gallery-meta">
-            <h3>Harbor at Blue Hour</h3>
-            <div class="year">Oil on canvas, 2021</div>
-            <div class="medium">Provincetown Harbor, late summer light.</div>
+            <h3>Beach Access</h3>
           </div>
         </article>
 
-        <!-- ITEM 2 -->
+        <!-- BogSunset -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
-            <img
-              src="https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg"
-              alt="Painting inspired by sand dunes and sea grass"
-            />
+            <img src="BogSunset.png" alt="Bog Sunset" />
           </div>
           <div class="gallery-meta">
-            <h3>Dune Path</h3>
-            <div class="year">Oil on panel, 2020</div>
-            <div class="medium">A quiet walk toward the Atlantic at dusk.</div>
+            <h3>Bog Sunset</h3>
           </div>
         </article>
 
-        <!-- ITEM 3 -->
+        <!-- Cape -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
-            <img
-              src="https://images.pexels.com/photos/91222/pexels-photo-91222.jpeg"
-              alt="Painting of a small coastal cottage"
-            />
+            <img src="Cape.png" alt="Cape" />
           </div>
           <div class="gallery-meta">
-            <h3>Weathered Cottage</h3>
-            <div class="year">Acrylic on canvas, 2019</div>
-            <div class="medium">Sun-bleached shingles and salt air.</div>
+            <h3>Cape</h3>
           </div>
         </article>
 
-        <!-- ITEM 4 -->
+        <!-- Chappy -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
-            <img
-              src="https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg"
-              alt="Painting of a calm ocean horizon"
-            />
+            <img src="Chappy.png" alt="Chappy" />
           </div>
           <div class="gallery-meta">
-            <h3>Calm Tide</h3>
-            <div class="year">Oil on linen, 2018</div>
-            <div class="medium">Minimal horizon, shifting color fields.</div>
+            <h3>Chappy</h3>
+          </div>
+        </article>
+
+        <!-- Industrial -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="Industrial.png" alt="Industrial" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Industrial</h3>
+          </div>
+        </article>
+
+        <!-- Marketplace -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="Marketplace.png" alt="Marketplace" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Marketplace</h3>
+          </div>
+        </article>
+
+        <!-- NewSeaburyCC -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="NewSeaburyCC.png" alt="New Seabury CC" />
+          </div>
+          <div class="gallery-meta">
+            <h3>New Seabury CC</h3>
+          </div>
+        </article>
+
+        <!-- NShoreCottage1 -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="NShoreCottage1.png" alt="North Shore Cottage" />
+          </div>
+          <div class="gallery-meta">
+            <h3>North Shore Cottage</h3>
+          </div>
+        </article>
+
+        <!-- ParisRiverboat -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="ParisRiverboat.png" alt="Paris Riverboat" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Paris Riverboat</h3>
+          </div>
+        </article>
+
+        <!-- SailboatBeach -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SailboatBeach.png" alt="Sailboat Beach" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Sailboat Beach</h3>
+          </div>
+        </article>
+
+        <!-- SailboatSunset -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SailboatSunset.png" alt="Sailboat Sunset" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Sailboat Sunset</h3>
+          </div>
+        </article>
+
+        <!-- SailCrew -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SailCrew.png" alt="Sail Crew" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Sail Crew</h3>
+          </div>
+        </article>
+
+        <!-- SnowyCreek -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SnowyCreek.png" alt="Snowy Creek" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Snowy Creek</h3>
+          </div>
+        </article>
+
+        <!-- SummerHouse -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SummerHouse.png" alt="Summer House" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Summer House</h3>
+          </div>
+        </article>
+
+        <!-- TownSquare -->
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="TownSquare.png" alt="Town Square" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Town Square</h3>
           </div>
         </article>
       </div>
@@ -558,8 +606,8 @@
 
         <aside class="bio-portrait">
           <img
-            src="https://images.pexels.com/photos/3738084/pexels-photo-3738084.jpeg"
-            alt="Portrait of the artist in a studio"
+            src="BillStudio.png"
+            alt="Bill Noble in his studio"
           />
         </aside>
       </div>
@@ -569,60 +617,13 @@
     <section id="marketplace">
       <div class="section-heading">
         <h2>Marketplace</h2>
-        <p>
-          A selection of currently available works. To purchase or inquire, please get in touch.
-        </p>
+        <p>Original works and selected prints available directly from the studio.</p>
       </div>
 
-      <div class="market-grid">
-        <!-- AVAILABLE WORK 1 -->
-        <article class="market-card">
-          <div class="market-title">Low Tide Morning</div>
-          <div class="market-meta">
-            Oil on canvas, 18" × 24"<br />
-            Framed in natural oak
-          </div>
-          <div class="market-price">$1,200</div>
-          <div class="market-actions">
-            <button class="btn btn-outline" onclick="openInquiry('Low Tide Morning')">
-              Inquire
-            </button>
-            <small>Ships from Cape Cod, MA</small>
-          </div>
-        </article>
-
-        <!-- AVAILABLE WORK 2 -->
-        <article class="market-card">
-          <div class="market-title">Harbor Fog</div>
-          <div class="market-meta">
-            Oil on linen, 24" × 30"<br />
-            Float frame, off-white
-          </div>
-          <div class="market-price">$1,850</div>
-          <div class="market-actions">
-            <button class="btn btn-outline" onclick="openInquiry('Harbor Fog')">
-              Inquire
-            </button>
-            <small>Original work • Signed</small>
-          </div>
-        </article>
-
-        <!-- AVAILABLE WORK 3 -->
-        <article class="market-card">
-          <div class="market-title">Evening Dunes</div>
-          <div class="market-meta">
-            Acrylic on panel, 12" × 16"<br />
-            Ready to hang
-          </div>
-          <div class="market-price">$780</div>
-          <div class="market-actions">
-            <button class="btn btn-outline" onclick="openInquiry('Evening Dunes')">
-              Inquire
-            </button>
-            <small>Payment plans available</small>
-          </div>
-        </article>
-      </div>
+      <p class="market-coming-soon">
+        Marketplace coming soon. Please check back for available works, or contact Bill directly
+        for current pieces and commission inquiries.
+      </p>
     </section>
 
     <!-- CONTACT SECTION -->
@@ -652,17 +653,6 @@
   <script>
     // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Simple email inquiry helper
-    function openInquiry(title) {
-      const subject = encodeURIComponent("Artwork Inquiry: " + title);
-      const body = encodeURIComponent(
-        "Hello Bill,\n\nI'm interested in the piece \"" +
-          title +
-          "\". Could you share availability, pricing, and shipping details?\n\nThank you,\n"
-      );
-      window.location.href = "mailto:info@billnoblefineart.com?subject=" + subject + "&body=" + body;
-    }
   </script>
 </body>
 </html>
