@@ -297,31 +297,6 @@
       object-fit: cover;
     }
 
-    /* MARKETPLACE */
-    .market-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .market-card {
-      background: white;
-      border-radius: 1.1rem;
-      padding: 1.25rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .market-coming-soon {
-      margin-top: 1.2rem;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: rgba(40, 50, 58, 0.85);
-    }
-
     /* CONTACT / FOOTER */
     .contact {
       text-align: center;
@@ -383,9 +358,9 @@
       <div class="logo">Bill Noble Fine Art</div>
       <nav>
         <ul>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#current-gallery">Current Gallery</a></li>
+          <li><a href="#archives">Archives</a></li>
           <li><a href="#bio">About</a></li>
-          <li><a href="#marketplace">Marketplace</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -403,7 +378,7 @@
       </p>
 
       <div class="hero-cta">
-        <a href="#gallery" class="btn btn-primary">View Gallery</a>
+        <a href="#archives" class="btn btn-primary">View Archives</a>
         <a href="#bio" class="btn">About the Artist</a>
       </div>
 
@@ -414,15 +389,22 @@
   </section>
 
   <main>
-    <!-- GALLERY SECTION -->
-    <section id="gallery">
+    <!-- CURRENT GALLERY SECTION -->
+    <section id="current-gallery">
       <div class="section-heading">
-        <h2>Gallery</h2>
+        <h2>Current Gallery</h2>
+        <p>Coming Soon</p>
+      </div>
+    </section>
+
+    <!-- ARCHIVES SECTION -->
+    <section id="archives">
+      <div class="section-heading">
+        <h2>Archives</h2>
         <p>Archived works of Bill Noble — a selection from the studio.</p>
       </div>
 
       <div class="gallery-grid">
-        <!-- BeachAccess -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="BeachAccess.png" alt="Beach Access" />
@@ -432,7 +414,6 @@
           </div>
         </article>
 
-        <!-- BogSunset -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="BogSunset.png" alt="Bog Sunset" />
@@ -442,7 +423,6 @@
           </div>
         </article>
 
-        <!-- Cape -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="Cape.png" alt="Cape" />
@@ -452,7 +432,6 @@
           </div>
         </article>
 
-        <!-- Chappy -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="Chappy.png" alt="Chappy" />
@@ -462,7 +441,6 @@
           </div>
         </article>
 
-        <!-- Industrial -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="Industrial.png" alt="Industrial" />
@@ -472,7 +450,6 @@
           </div>
         </article>
 
-        <!-- Marketplace -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="Marketplace.png" alt="Marketplace" />
@@ -482,7 +459,6 @@
           </div>
         </article>
 
-        <!-- NewSeaburyCC -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="NewSeaburyCC.png" alt="New Seabury CC" />
@@ -492,7 +468,6 @@
           </div>
         </article>
 
-        <!-- NShoreCottage1 -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="NShoreCottage1.png" alt="North Shore Cottage" />
@@ -502,7 +477,6 @@
           </div>
         </article>
 
-        <!-- ParisRiverboat -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="ParisRiverboat.png" alt="Paris Riverboat" />
@@ -512,7 +486,6 @@
           </div>
         </article>
 
-        <!-- SailboatBeach -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="SailboatBeach.png" alt="Sailboat Beach" />
@@ -522,7 +495,6 @@
           </div>
         </article>
 
-        <!-- SailboatSunset -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="SailboatSunset.png" alt="Sailboat Sunset" />
@@ -532,7 +504,6 @@
           </div>
         </article>
 
-        <!-- SailCrew -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="SailCrew.png" alt="Sail Crew" />
@@ -542,7 +513,6 @@
           </div>
         </article>
 
-        <!-- SnowyCreek -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="SnowyCreek.png" alt="Snowy Creek" />
@@ -550,9 +520,8 @@
           <div class="gallery-meta">
             <h3>Snowy Creek</h3>
           </div>
-        </article>
+          </article>
 
-        <!-- SummerHouse -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="SummerHouse.png" alt="Summer House" />
@@ -562,7 +531,6 @@
           </div>
         </article>
 
-        <!-- TownSquare -->
         <article class="gallery-item">
           <div class="gallery-img-wrap">
             <img src="TownSquare.png" alt="Town Square" />
@@ -587,8 +555,7 @@
             Bill Noble is a New England–based painter whose work explores the
             intersection of memory, atmosphere, and the ever-changing coastal
             light of Cape Cod. Working primarily in oil, Bill layers subtle
-            color fields with gestural marks to evoke the feeling of a place
-            rather than a literal depiction.
+            color fields with gestural marks to evoke the feeling of a place.
           </p>
           <p>
             Raised near the Atlantic and drawn back to the Cape year after year,
@@ -597,6 +564,23 @@
             dunes. His work has been exhibited in regional galleries and is held
             in private collections throughout the United States.
           </p>
+
+          <p>
+            He teaches oil painting at the Falmouth Art Center where he is a lifetime member and former member of the Board of Directors.
+          </p>
+
+          <p>
+            In 2015, Bill submitted a Portfolio to Les Amis in Dinan, France and was chosen to serve a 30-day artist in residence in 2016.
+          </p>
+
+          <p>
+            His work has been exhibited in many prestigious venues including the Cahoon Museum of American Art, Highfield Hall, Attleboro Art Museum, and Cape Cod Cultural Center.
+          </p>
+
+          <p>
+            He has won numerous awards and honors for his work which can be found in many private and corporate collections around the world.
+          </p>
+
           <div class="bio-highlight">
             <strong>Artist statement:</strong>
             “I paint the pause between tides — the brief moments where light,
@@ -605,25 +589,9 @@
         </div>
 
         <aside class="bio-portrait">
-          <img
-            src="BillStudio.png"
-            alt="Bill Noble in his studio"
-          />
+          <img src="BillStudio.png" alt="Bill Noble in his studio" />
         </aside>
       </div>
-    </section>
-
-    <!-- MARKETPLACE SECTION -->
-    <section id="marketplace">
-      <div class="section-heading">
-        <h2>Marketplace</h2>
-        <p>Original works and selected prints available directly from the studio.</p>
-      </div>
-
-      <p class="market-coming-soon">
-        Marketplace coming soon. Please check back for available works, or contact Bill directly
-        for current pieces and commission inquiries.
-      </p>
     </section>
 
     <!-- CONTACT SECTION -->
@@ -650,9 +618,35 @@
     &copy; <span id="year"></span> Bill Noble Fine Art. All rights reserved.
   </footer>
 
-  <script>
-    // Set current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<script>
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Holiday popup (shows EVERY page load on holidays)
+  (function () {
+    const today = new Date();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const todayKey = `${mm}-${dd}`;
+
+    // Map of holidays (month-day) => message
+    const holidayMessages = {
+      "01-01": "Happy New Year from Bill Noble!",
+      "02-14": "Happy Valentine’s Day from Bill Noble!",
+      "03-17": "Happy St. Patrick’s Day from Bill Noble!",
+      "07-04": "Happy Fourth of July from Bill Noble!",
+      "10-31": "Happy Halloween from Bill Noble!",
+      "11-11": "Happy Veterans Day from Bill Noble!",
+      "11-28": "Happy Thanksgiving from Bill Noble!",
+      "12-24": "Happy Holidays from Bill Noble!",
+      "12-25": "Merry Christmas from Bill Noble!",
+      "12-31": "Happy New Year’s Eve from Bill Noble!"
+    };
+
+    const message = holidayMessages[todayKey];
+    if (!message) return;
+
+    // Always shows on load (even after refresh)
+    alert(message);
+  })();
+</script>
