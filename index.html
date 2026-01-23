@@ -25,7 +25,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -115,7 +114,7 @@
     }
     nav a:hover::after { width: 100%; }
 
-    /* HERO / TITLE SCREEN */
+    /* HERO */
     .hero {
       min-height: 92vh;
       display: flex;
@@ -162,9 +161,7 @@
       animation: heroEnter 1.2s var(--ease-out) forwards;
     }
 
-    @keyframes heroEnter {
-      to { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes heroEnter { to { transform: translateY(0); opacity: 1; } }
 
     .hero-kicker {
       text-transform: uppercase;
@@ -231,7 +228,6 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.22);
       background: rgba(243, 228, 208, 0.14);
     }
-
     .btn-primary:hover { background: #f6ead9; }
 
     .hero-note {
@@ -276,7 +272,7 @@
       color: rgba(40, 50, 58, 0.72);
     }
 
-    /* Scroll reveal (applied by JS) */
+    /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(16px);
@@ -354,7 +350,6 @@
 
     .gallery-meta h3 {
       font-size: 1rem;
-      margin-bottom: 0;
       font-weight: 600;
       letter-spacing: 0.01em;
       color: rgba(31, 59, 77, 0.95);
@@ -445,8 +440,14 @@
       box-shadow: 0 14px 28px rgba(0,0,0,0.12);
     }
 
-    .btn-card-primary:hover {
-      background: rgba(31, 59, 77, 0.92);
+    .btn-card-primary:hover { background: rgba(31, 59, 77, 0.92); }
+
+    /* Disabled link/button look */
+    .is-disabled {
+      opacity: 0.55 !important;
+      cursor: not-allowed !important;
+      pointer-events: none !important;
+      filter: grayscale(0.2);
     }
 
     /* BIO */
@@ -507,7 +508,7 @@
     }
     .contact a:hover { opacity: 0.75; }
 
-    /* SITE FOOTER */
+    /* FOOTER */
     footer {
       padding: 1.7rem 1.5rem;
       text-align: center;
@@ -517,7 +518,7 @@
       background: #f6efe5;
     }
 
-    /* ✅ PALMWEB BRAND STRIP (SUBTLE) */
+    /* PALMWEB STRIP */
     .palmweb-strip {
       display: flex;
       align-items: center;
@@ -548,7 +549,7 @@
     }
     .palmweb-strip a:hover { opacity: 0.75; }
 
-    /* MODAL (Details popup) */
+    /* MODAL */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -649,47 +650,19 @@
       background: rgba(0,0,0,0.42);
     }
 
-    /* MOBILE */
     @media (max-width: 720px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-
-      nav ul {
-        gap: 1rem;
-        font-size: 0.78rem;
-        flex-wrap: wrap;
-      }
-
-      .hero {
-        padding-top: 8.5rem;
-        min-height: 92vh;
-      }
-
+      .nav-container { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      nav ul { gap: 1rem; font-size: 0.78rem; flex-wrap: wrap; }
+      .hero { padding-top: 8.5rem; min-height: 92vh; }
       .bio-layout { grid-template-columns: 1fr; }
-
-      .bio-portrait {
-        margin: 0;
-        max-width: 100%;
-        order: -1;
-      }
-
+      .bio-portrait { margin: 0; max-width: 100%; order: -1; }
       main { padding-inline: 1rem; }
-
-      .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
+      .section-heading { flex-direction: column; align-items: flex-start; }
       .section-heading p { max-width: 100%; }
-
       .modal { grid-template-columns: 1fr; }
       .modal-media { min-height: 280px; }
     }
 
-    /* Reduce motion for accessibility */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .hero::after { animation: none; }
@@ -701,7 +674,6 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <header>
     <div class="nav-container">
       <div class="logo">Bill Noble Fine Art</div>
@@ -716,7 +688,6 @@
     </div>
   </header>
 
-  <!-- HERO / TITLE SCREEN -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-kicker">Cape Cod • Original Paintings</div>
@@ -738,7 +709,6 @@
   </section>
 
   <main>
-    <!-- CURRENT GALLERY SECTION -->
     <section id="current-gallery" class="reveal">
       <div class="section-heading">
         <h2>Current Gallery</h2>
@@ -746,12 +716,10 @@
       </div>
 
       <div class="gallery-grid">
-        <!-- ✅ FOR SALE ITEM -->
         <article class="gallery-item">
           <div class="badge">For Sale</div>
 
           <div class="gallery-img-wrap">
-            <!-- If you did NOT rename the file, change src to match your exact filename -->
             <img src="goodnight-cuttyhunk.jpg" alt="Good Night Cuttyhunk" loading="lazy" />
           </div>
 
@@ -769,29 +737,16 @@
             </div>
 
             <div class="card-actions">
-              <button
-                class="btn-card"
-                data-open-modal="goodnight-cuttyhunk"
-                type="button"
-              >
-                Details
-              </button>
+              <button class="btn-card" data-open-modal="goodnight-cuttyhunk" type="button">Details</button>
 
-              <!-- 🔗 Replace href with your actual marketplace listing URL (Etsy/Saatchi/Shopify/etc.) -->
-              <a
-                class="btn-card btn-card-primary"
-                href="https://example.com/your-marketplace-listing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <!-- Buy link is set by JS so you only edit the URL once -->
+              <a class="btn-card btn-card-primary" data-buy-link="goodnight-cuttyhunk"
+                 href="#" target="_blank" rel="noopener noreferrer">
                 Buy
               </a>
 
-              <!-- Email inquiry with prefilled subject/body -->
-              <a
-                class="btn-card"
-                href="mailto:noble.art@outlook.com?subject=Purchase%20Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27m%20interested%20in%20purchasing%20%22Good%20Night%20Cuttyhunk%22%20(24x36%2C%20oil%20on%20canvas%2C%20%241950).%0A%0ACan%20you%20confirm%20availability%2C%20shipping%20cost%2C%20and%20estimated%20delivery%20timing%3F%0A%0AThank%20you%2C"
-              >
+              <a class="btn-card"
+                 href="mailto:noble.art@outlook.com?subject=Purchase%20Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27m%20interested%20in%20purchasing%20%22Good%20Night%20Cuttyhunk%22%20(24x36%2C%20oil%20on%20canvas%2C%20%241950).%0A%0ACan%20you%20confirm%20availability%2C%20shipping%20cost%2C%20and%20estimated%20delivery%20timing%3F%0A%0AThank%20you%2C">
                 Inquire
               </a>
             </div>
@@ -800,7 +755,6 @@
       </div>
     </section>
 
-    <!-- ARCHIVES SECTION -->
     <section id="archives" class="reveal">
       <div class="section-heading">
         <h2>Archives</h2>
@@ -945,7 +899,6 @@
       </div>
     </section>
 
-    <!-- BIO SECTION -->
     <section id="bio" class="reveal">
       <div class="section-heading">
         <h2>About</h2>
@@ -997,7 +950,6 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="contact reveal">
       <div class="section-heading" style="justify-content: center; text-align: center;">
         <h2>Contact</h2>
@@ -1013,12 +965,10 @@
     </section>
   </main>
 
-  <!-- MAIN SITE FOOTER -->
   <footer>
     &copy; <span id="year"></span> Bill Noble Fine Art. All rights reserved.
   </footer>
 
-  <!-- ✅ PALMWEB BRAND STRIP FOOTER -->
   <div class="palmweb-strip">
     <img src="logo.png" alt="PalmWeb logo" />
     <span>Website by <a href="https://palmweb.net" target="_blank" rel="noopener noreferrer">PalmWeb</a></span>
@@ -1026,7 +976,7 @@
     <a href="mailto:mason@palmweb.net">mason@palmweb.net</a>
   </div>
 
-  <!-- ✅ DETAILS MODAL -->
+  <!-- MODAL -->
   <div class="modal-backdrop" id="artModalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="artModalTitle">
       <div class="modal-media">
@@ -1044,19 +994,13 @@
           <a class="btn-card" id="artModalInquire" href="#">Inquire</a>
           <button class="btn-card" id="artModalClose2" type="button">Close</button>
         </div>
-
-        <div class="modal-sub" style="margin-top:0.2rem;">
-          Tip: Once the marketplace listing is live, paste the listing URL into the “Buy” link for this artwork.
-        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Holiday popup (shows EVERY page load on holidays)
     (function () {
       const today = new Date();
       const mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -1078,11 +1022,9 @@
 
       const message = holidayMessages[todayKey];
       if (!message) return;
-
       alert(message);
     })();
 
-    // Scroll reveal animations
     (function () {
       const els = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver(
@@ -1093,11 +1035,10 @@
         },
         { threshold: 0.12 }
       );
-
       els.forEach((el) => io.observe(el));
     })();
 
-    // ✅ Artwork modal data (add more items here later)
+    // ✅ Set your marketplace listing URL here (Etsy/Saatchi/Shopify product page, etc.)
     const ARTWORKS = {
       "goodnight-cuttyhunk": {
         title: "Good Night Cuttyhunk",
@@ -1110,12 +1051,33 @@
           "Price: $1950.00",
           "Availability: Available"
         ],
-        // 🔗 Replace with your actual Etsy/Saatchi/Shopify listing URL
-        buyUrl: "https://example.com/your-marketplace-listing",
+        buyUrl: "PASTE_MARKETPLACE_URL_HERE",
         inquireMailto:
           "mailto:noble.art@outlook.com?subject=Purchase%20Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27m%20interested%20in%20purchasing%20%22Good%20Night%20Cuttyhunk%22%20(24x36%2C%20oil%20on%20canvas%2C%20%241950).%0A%0ACan%20you%20confirm%20availability%2C%20shipping%20cost%2C%20and%20estimated%20delivery%20timing%3F%0A%0AThank%20you%2C"
       }
     };
+
+    // ✅ Apply "Buy" link(s) in the card from ARTWORKS (single source of truth)
+    (function () {
+      const buyLinks = document.querySelectorAll("[data-buy-link]");
+      buyLinks.forEach((a) => {
+        const key = a.getAttribute("data-buy-link");
+        const art = ARTWORKS[key];
+        const url = art && typeof art.buyUrl === "string" ? art.buyUrl.trim() : "";
+
+        if (!url || url === "PASTE_MARKETPLACE_URL_HERE") {
+          a.href = "#";
+          a.classList.add("is-disabled");
+          a.setAttribute("aria-disabled", "true");
+          a.setAttribute("title", "Add your marketplace URL in the ARTWORKS.buyUrl field.");
+        } else {
+          a.href = url;
+          a.classList.remove("is-disabled");
+          a.removeAttribute("aria-disabled");
+          a.removeAttribute("title");
+        }
+      });
+    })();
 
     // ✅ Modal behavior
     (function () {
@@ -1130,6 +1092,21 @@
       const elBuy = document.getElementById("artModalBuy");
       const elInquire = document.getElementById("artModalInquire");
 
+      function setBuyButton(url) {
+        const u = (url || "").trim();
+        if (!u || u === "PASTE_MARKETPLACE_URL_HERE") {
+          elBuy.href = "#";
+          elBuy.classList.add("is-disabled");
+          elBuy.setAttribute("aria-disabled", "true");
+          elBuy.setAttribute("title", "Add your marketplace URL in ARTWORKS.buyUrl.");
+        } else {
+          elBuy.href = u;
+          elBuy.classList.remove("is-disabled");
+          elBuy.removeAttribute("aria-disabled");
+          elBuy.removeAttribute("title");
+        }
+      }
+
       function openModal(key) {
         const art = ARTWORKS[key];
         if (!art) return;
@@ -1142,7 +1119,7 @@
 
         elSpecs.innerHTML = art.specs.map((s) => `<div>${s}</div>`).join("");
 
-        elBuy.href = art.buyUrl || "#";
+        setBuyButton(art.buyUrl);
         elInquire.href = art.inquireMailto || "mailto:noble.art@outlook.com";
 
         backdrop.classList.add("open");
@@ -1154,7 +1131,6 @@
         backdrop.classList.remove("open");
         backdrop.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
-        // clear image to avoid loading if user opens/close a lot
         elImg.src = "";
         elImg.alt = "";
       }
@@ -1170,7 +1146,6 @@
       btnClose2.addEventListener("click", closeModal);
 
       backdrop.addEventListener("click", (e) => {
-        // Click outside modal closes
         if (e.target === backdrop) closeModal();
       });
 
