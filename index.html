@@ -24,8 +24,15 @@
       --ease-out: cubic-bezier(.2,.8,.2,1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,9 +44,17 @@
       overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Subtle ambient grain overlay */
     body::before {
       content: "";
       position: fixed;
@@ -52,14 +67,17 @@
       z-index: -1;
     }
 
+    /* NAVBAR */
     header {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       z-index: 1000;
       background: rgba(243, 228, 208, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(31, 59, 77, 0.12);
+      transition: transform 0.25s var(--ease-out), background 0.25s var(--ease-out);
     }
 
     .nav-container {
@@ -97,18 +115,27 @@
       opacity: 0.92;
       transition: opacity 0.2s var(--ease-out);
     }
-    nav a:hover { opacity: 1; }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
     nav a::after {
       content: "";
       position: absolute;
-      left: 0; bottom: 0;
+      left: 0;
+      bottom: 0;
       width: 0;
       height: 1px;
       background: var(--deep-navy);
       transition: width 0.22s var(--ease-out);
     }
-    nav a:hover::after { width: 100%; }
 
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO / TITLE SCREEN */
     .hero {
       min-height: 92vh;
       display: flex;
@@ -126,6 +153,7 @@
       overflow: hidden;
     }
 
+    /* Elegant “light sweep” */
     .hero::after {
       content: "";
       position: absolute;
@@ -154,7 +182,10 @@
       opacity: 0;
       animation: heroEnter 1.2s var(--ease-out) forwards;
     }
-    @keyframes heroEnter { to { transform: translateY(0); opacity: 1; } }
+
+    @keyframes heroEnter {
+      to { transform: translateY(0); opacity: 1; }
+    }
 
     .hero-kicker {
       text-transform: uppercase;
@@ -202,9 +233,11 @@
         box-shadow 0.18s var(--ease-out),
         background 0.18s var(--ease-out);
       box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+      will-change: transform;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
     }
 
     .btn-primary {
@@ -219,7 +252,10 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.22);
       background: rgba(243, 228, 208, 0.14);
     }
-    .btn-primary:hover { background: #f6ead9; }
+
+    .btn-primary:hover {
+      background: #f6ead9;
+    }
 
     .hero-note {
       margin-top: 1.7rem;
@@ -228,6 +264,7 @@
       letter-spacing: 0.02em;
     }
 
+    /* SECTIONS */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -238,7 +275,10 @@
       padding: 3.25rem 0;
       border-bottom: 1px solid rgba(40, 50, 58, 0.08);
     }
-    section:last-of-type { border-bottom: none; }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
 
     .section-heading {
       margin-bottom: 1.6rem;
@@ -262,13 +302,18 @@
       color: rgba(40, 50, 58, 0.72);
     }
 
+    /* Scroll reveal (applied by JS) */
     .reveal {
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
-    .reveal.show { opacity: 1; transform: translateY(0); }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+    /* GALLERY */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -303,15 +348,16 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%),
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%),
         linear-gradient(180deg, rgba(0,0,0,0.08), transparent 40%);
       opacity: 0.55;
       pointer-events: none;
       transition: opacity 0.3s var(--ease-out);
     }
 
-    .gallery-item:hover .gallery-img-wrap::after { opacity: 0.75; }
+    .gallery-item:hover .gallery-img-wrap::after {
+      opacity: 0.75;
+    }
 
     .gallery-img-wrap img {
       position: absolute;
@@ -333,16 +379,18 @@
       font-size: 0.95rem;
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.7rem;
     }
 
     .gallery-meta h3 {
       font-size: 1rem;
+      margin-bottom: 0;
       font-weight: 600;
       letter-spacing: 0.01em;
       color: rgba(31, 59, 77, 0.95);
     }
 
+    /* subtle underline accent on title */
     .gallery-meta h3::after {
       content: "";
       display: block;
@@ -365,7 +413,7 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 1rem;
-      padding-top: 0.3rem;
+      padding-top: 0.2rem;
     }
 
     .price {
@@ -412,6 +460,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.45rem;
     }
 
     .btn-card:hover {
@@ -426,8 +475,84 @@
       color: white;
       box-shadow: 0 14px 28px rgba(0,0,0,0.12);
     }
-    .btn-card-primary:hover { background: rgba(31, 59, 77, 0.92); }
 
+    .btn-card-primary:hover {
+      background: rgba(31, 59, 77, 0.92);
+    }
+
+    /* BIO */
+    .bio-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2.6rem;
+      align-items: start;
+    }
+
+    .bio-text p + p {
+      margin-top: 1rem;
+    }
+
+    .bio-text {
+      font-size: 1.02rem;
+    }
+
+    .bio-highlight {
+      margin-top: 1.35rem;
+      padding: 1.1rem 1.35rem;
+      background: var(--sand);
+      border-radius: 1rem;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+    }
+
+    .bio-portrait {
+      max-width: 380px;
+      margin-left: auto;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-strong);
+      position: relative;
+      transform: translateZ(0);
+    }
+
+    .bio-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .bio-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 0.65rem;
+      font-size: 1.02rem;
+    }
+
+    .contact a {
+      color: var(--deep-navy);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: opacity 0.18s var(--ease-out);
+    }
+
+    .contact a:hover {
+      opacity: 0.75;
+    }
+
+    /* SITE FOOTER */
     footer {
       padding: 1.7rem 1.5rem;
       text-align: center;
@@ -437,6 +562,7 @@
       background: #f6efe5;
     }
 
+    /* ✅ PALMWEB BRAND STRIP (SUBTLE) */
     .palmweb-strip {
       display: flex;
       align-items: center;
@@ -465,9 +591,12 @@
       text-underline-offset: 3px;
       transition: opacity 0.2s var(--ease-out);
     }
-    .palmweb-strip a:hover { opacity: 0.75; }
 
-    /* MODAL */
+    .palmweb-strip a:hover {
+      opacity: 0.75;
+    }
+
+    /* ✅ MODAL */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -478,7 +607,10 @@
       padding: 1.25rem;
       z-index: 2000;
     }
-    .modal-backdrop.open { display: flex; }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
 
     .modal {
       width: min(980px, 100%);
@@ -540,7 +672,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
-      margin-top: 0.35rem;
+      margin-top: 0.1rem;
     }
 
     .modal-close {
@@ -561,22 +693,127 @@
       transition: transform 0.18s var(--ease-out), background 0.18s var(--ease-out);
       z-index: 2;
     }
+
     .modal-close:hover {
       transform: translateY(-1px);
       background: rgba(0,0,0,0.42);
     }
 
-    @media (max-width: 720px) {
-      .nav-container { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-      nav ul { gap: 1rem; font-size: 0.78rem; flex-wrap: wrap; }
-      .hero { padding-top: 8.5rem; min-height: 92vh; }
-      main { padding-inline: 1rem; }
-      .section-heading { flex-direction: column; align-items: flex-start; }
-      .section-heading p { max-width: 100%; }
-      .modal { grid-template-columns: 1fr; }
-      .modal-media { min-height: 280px; }
+    /* ✅ FORM (inside modal) */
+    .form-hint {
+      font-size: 0.92rem;
+      color: rgba(40, 50, 58, 0.72);
+      margin-top: 0.15rem;
     }
 
+    .notice {
+      display: none;
+      padding: 0.9rem 1rem;
+      border-radius: 1rem;
+      background: rgba(243, 228, 208, 0.55);
+      color: rgba(31, 59, 77, 0.92);
+      font-size: 0.95rem;
+    }
+
+    .notice.show {
+      display: block;
+    }
+
+    .form {
+      margin-top: 0.35rem;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(31, 59, 77, 0.85);
+    }
+
+    .input, .textarea, .select {
+      width: 100%;
+      padding: 0.75rem 0.85rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(31, 59, 77, 0.18);
+      background: rgba(250, 248, 244, 1);
+      outline: none;
+      font-size: 0.98rem;
+      color: rgba(31, 59, 77, 0.95);
+    }
+
+    .textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* Honeypot field (hidden) */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* MOBILE */
+    @media (max-width: 720px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+        font-size: 0.78rem;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 8.5rem;
+        min-height: 92vh;
+      }
+
+      .bio-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-portrait {
+        margin: 0;
+        max-width: 100%;
+        order: -1;
+      }
+
+      main {
+        padding-inline: 1rem;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-heading p {
+        max-width: 100%;
+      }
+
+      .modal {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-media {
+        min-height: 280px;
+      }
+    }
+
+    /* Reduce motion for accessibility */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .hero::after { animation: none; }
@@ -588,6 +825,7 @@
 </head>
 
 <body>
+  <!-- NAVBAR -->
   <header>
     <div class="nav-container">
       <div class="logo">Bill Noble Fine Art</div>
@@ -602,6 +840,7 @@
     </div>
   </header>
 
+  <!-- HERO / TITLE SCREEN -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-kicker">Cape Cod • Original Paintings</div>
@@ -616,23 +855,28 @@
         <a href="#bio" class="btn">About the Artist</a>
       </div>
 
-      <p class="hero-note">Commissions by request • Studio visits by appointment</p>
+      <p class="hero-note">
+        Commissions by request • Studio visits by appointment
+      </p>
     </div>
   </section>
 
   <main>
+    <!-- CURRENT GALLERY SECTION -->
     <section id="current-gallery" class="reveal">
       <div class="section-heading">
         <h2>Current Gallery</h2>
-        <p>Available works — click Buy to request purchase (no marketplace required).</p>
+        <p>Available works — click Buy or Inquire to send a message directly from the site.</p>
       </div>
 
       <div class="gallery-grid">
+        <!-- ✅ Good Night Cuttyhunk (FOR SALE) -->
         <article class="gallery-item">
           <div class="badge">For Sale</div>
 
           <div class="gallery-img-wrap">
-            <img src="goodnight-cuttyhunk.jpg" alt="Good Night Cuttyhunk" loading="lazy" />
+            <!-- If your filename differs, change it here (example: GoodnightCuttyhunk.png) -->
+            <img src="GoodnightCuttyhunk.png" alt="Good Night Cuttyhunk" loading="lazy" />
           </div>
 
           <div class="gallery-meta">
@@ -649,23 +893,16 @@
             </div>
 
             <div class="card-actions">
-              <button class="btn-card" data-open-modal="goodnight-cuttyhunk" type="button">Details</button>
-
-              <!-- ✅ Buy opens a prefilled email purchase request -->
-              <a class="btn-card btn-card-primary" data-buy-link="goodnight-cuttyhunk" href="#">
-                Buy
-              </a>
-
-              <a class="btn-card"
-                 href="mailto:noble.art@outlook.com?subject=Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27d%20like%20more%20information%20about%20%22Good%20Night%20Cuttyhunk%22.%0A%0AThank%20you%2C">
-                Inquire
-              </a>
+              <button class="btn-card" data-open-modal="goodnight-cuttyhunk" data-mode="details" type="button">Details</button>
+              <button class="btn-card btn-card-primary" data-open-modal="goodnight-cuttyhunk" data-mode="buy" type="button">Buy</button>
+              <button class="btn-card" data-open-modal="goodnight-cuttyhunk" data-mode="inquire" type="button">Inquire</button>
             </div>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- ARCHIVES SECTION -->
     <section id="archives" class="reveal">
       <div class="section-heading">
         <h2>Archives</h2>
@@ -673,24 +910,144 @@
       </div>
 
       <div class="gallery-grid">
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="BeachAccess.png" alt="Beach Access" loading="lazy" /></div><div class="gallery-meta"><h3>Beach Access</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="BogSunset.png" alt="Bog Sunset" loading="lazy" /></div><div class="gallery-meta"><h3>Bog Sunset</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Cape.png" alt="Cape" loading="lazy" /></div><div class="gallery-meta"><h3>Cape</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Chappy.png" alt="Chappy" loading="lazy" /></div><div class="gallery-meta"><h3>Chappy</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Industrial.png" alt="Industrial" loading="lazy" /></div><div class="gallery-meta"><h3>Industrial</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Marketplace.png" alt="Marketplace" loading="lazy" /></div><div class="gallery-meta"><h3>Marketplace</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="NewSeaburyCC.png" alt="New Seabury CC" loading="lazy" /></div><div class="gallery-meta"><h3>New Seabury CC</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="NShoreCottage1.png" alt="North Shore Cottage" loading="lazy" /></div><div class="gallery-meta"><h3>North Shore Cottage</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="ParisRiverboat.png" alt="Paris Riverboat" loading="lazy" /></div><div class="gallery-meta"><h3>Paris Riverboat</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SailboatBeach.png" alt="Sailboat Beach" loading="lazy" /></div><div class="gallery-meta"><h3>Sailboat Beach</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SailboatSunset.png" alt="Sailboat Sunset" loading="lazy" /></div><div class="gallery-meta"><h3>Sailboat Sunset</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SailCrew.png" alt="Sail Crew" loading="lazy" /></div><div class="gallery-meta"><h3>Sail Crew</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SnowyCreek.png" alt="Snowy Creek" loading="lazy" /></div><div class="gallery-meta"><h3>Snowy Creek</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SummerHouse.png" alt="Summer House" loading="lazy" /></div><div class="gallery-meta"><h3>Summer House</h3></div></article>
-        <article class="gallery-item"><div class="gallery-img-wrap"><img src="TownSquare.png" alt="Town Square" loading="lazy" /></div><div class="gallery-meta"><h3>Town Square</h3></div></article>
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="BeachAccess.png" alt="Beach Access" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Beach Access</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="BogSunset.png" alt="Bog Sunset" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Bog Sunset</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="Cape.png" alt="Cape" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Cape</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="Chappy.png" alt="Chappy" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Chappy</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="Industrial.png" alt="Industrial" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Industrial</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="Marketplace.png" alt="Marketplace" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Marketplace</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="NewSeaburyCC.png" alt="New Seabury CC" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>New Seabury CC</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="NShoreCottage1.png" alt="North Shore Cottage" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>North Shore Cottage</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="ParisRiverboat.png" alt="Paris Riverboat" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Paris Riverboat</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SailboatBeach.png" alt="Sailboat Beach" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Sailboat Beach</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SailboatSunset.png" alt="Sailboat Sunset" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Sailboat Sunset</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SailCrew.png" alt="Sail Crew" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Sail Crew</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SnowyCreek.png" alt="Snowy Creek" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Snowy Creek</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="SummerHouse.png" alt="Summer House" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Summer House</h3>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="TownSquare.png" alt="Town Square" loading="lazy" />
+          </div>
+          <div class="gallery-meta">
+            <h3>Town Square</h3>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- BIO SECTION -->
     <section id="bio" class="reveal">
       <div class="section-heading">
         <h2>About</h2>
@@ -713,10 +1070,21 @@
             in private collections throughout the United States.
           </p>
 
-          <p>He teaches oil painting at the Falmouth Art Center where he is a lifetime member and former member of the Board of Directors.</p>
-          <p>In 2015, Bill submitted a Portfolio to Les Amis in Dinan, France and was chosen to serve a 30-day artist in residence in 2016.</p>
-          <p>His work has been exhibited in many prestigious venues including the Cahoon Museum of American Art, Highfield Hall, Attleboro Art Museum, and Cape Cod Cultural Center.</p>
-          <p>He has won numerous awards and honors for his work which can be found in many private and corporate collections around the world.</p>
+          <p>
+            He teaches oil painting at the Falmouth Art Center where he is a lifetime member and former member of the Board of Directors.
+          </p>
+
+          <p>
+            In 2015, Bill submitted a Portfolio to Les Amis in Dinan, France and was chosen to serve a 30-day artist in residence in 2016.
+          </p>
+
+          <p>
+            His work has been exhibited in many prestigious venues including the Cahoon Museum of American Art, Highfield Hall, Attleboro Art Museum, and Cape Cod Cultural Center.
+          </p>
+
+          <p>
+            He has won numerous awards and honors for his work which can be found in many private and corporate collections around the world.
+          </p>
 
           <div class="bio-highlight">
             <strong>Artist statement:</strong>
@@ -731,12 +1099,17 @@
       </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact reveal">
       <div class="section-heading" style="justify-content: center; text-align: center;">
         <h2>Contact</h2>
       </div>
-      <p>For purchases, commissions, or studio visits, please email:</p>
-      <p><a href="mailto:noble.art@outlook.com">noble.art@outlook.com</a></p>
+      <p>
+        For purchases, commissions, or studio visits, please email:
+      </p>
+      <p>
+        <a href="mailto:noble.art@outlook.com">noble.art@outlook.com</a>
+      </p>
       <p>
         or follow on Instagram:
         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
@@ -746,10 +1119,12 @@
     </section>
   </main>
 
+  <!-- MAIN SITE FOOTER -->
   <footer>
     &copy; <span id="year"></span> Bill Noble Fine Art. All rights reserved.
   </footer>
 
+  <!-- ✅ PALMWEB BRAND STRIP FOOTER -->
   <div class="palmweb-strip">
     <img src="logo.png" alt="PalmWeb logo" />
     <span>Website by <a href="https://palmweb.net" target="_blank" rel="noopener noreferrer">PalmWeb</a></span>
@@ -757,68 +1132,135 @@
     <a href="mailto:mason@palmweb.net">mason@palmweb.net</a>
   </div>
 
+  <!-- ✅ MODAL (Details + Buy/Inquire Form) -->
   <div class="modal-backdrop" id="artModalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="artModalTitle">
       <div class="modal-media">
         <button class="modal-close" id="artModalClose" type="button" aria-label="Close">×</button>
         <img id="artModalImg" src="" alt="" />
       </div>
+
       <div class="modal-body">
         <div class="modal-title" id="artModalTitle"></div>
         <div class="modal-sub" id="artModalSub"></div>
+
         <div class="modal-specs" id="artModalSpecs"></div>
 
         <div class="modal-actions">
-          <a class="btn-card btn-card-primary" id="artModalBuy" href="#">Buy</a>
-          <a class="btn-card" id="artModalInquire" href="#">Inquire</a>
+          <button class="btn-card btn-card-primary" id="focusFormBtn" type="button">Send Request</button>
           <button class="btn-card" id="artModalClose2" type="button">Close</button>
         </div>
+
+        <div class="form-hint">
+          Send a purchase request or inquiry directly from the website (no email app required).
+        </div>
+
+        <div class="notice" id="formNotice"></div>
+
+        <!-- ✅ Formspree endpoint set here -->
+        <form class="form" id="inquiryForm" method="POST" action="https://formspree.io/f/maqedaar">
+          <!-- Hidden: which artwork -->
+          <input type="hidden" name="artwork" id="formArtwork" value="" />
+
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label>Leave this field empty</label>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <div class="label">Request type</div>
+            <select class="select" name="request_type" id="formRequestType" required>
+              <option value="Purchase Request">Purchase Request</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="label">Name</div>
+            <input class="input" type="text" name="name" required placeholder="Your name" />
+          </div>
+
+          <div class="form-row">
+            <div class="label">Email</div>
+            <input class="input" type="email" name="email" required placeholder="you@example.com" />
+          </div>
+
+          <div class="form-row">
+            <div class="label">Message</div>
+            <textarea class="textarea" name="message" required
+              placeholder="If purchasing, include your shipping city/state (or full address). Ask any questions here."></textarea>
+          </div>
+
+          <button class="btn-card btn-card-primary" type="submit">Submit</button>
+        </form>
       </div>
     </div>
   </div>
 
   <script>
+    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Holiday popup (shows EVERY page load on holidays)
+    (function () {
+      const today = new Date();
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const dd = String(today.getDate()).padStart(2, "0");
+      const todayKey = `${mm}-${dd}`;
+
+      // Map of holidays (month-day) => message
+      const holidayMessages = {
+        "01-01": "Happy New Year from Bill Noble!",
+        "02-14": "Happy Valentine’s Day from Bill Noble!",
+        "03-17": "Happy St. Patrick’s Day from Bill Noble!",
+        "07-04": "Happy Fourth of July from Bill Noble!",
+        "10-31": "Happy Halloween from Bill Noble!",
+        "11-11": "Happy Veterans Day from Bill Noble!",
+        "11-28": "Happy Thanksgiving from Bill Noble!",
+        "12-24": "Happy Holidays from Bill Noble!",
+        "12-25": "Merry Christmas from Bill Noble!",
+        "12-31": "Happy New Year’s Eve from Bill Noble!"
+      };
+
+      const message = holidayMessages[todayKey];
+      if (!message) return;
+
+      alert(message);
+    })();
+
+    // Scroll reveal animations
     (function () {
       const els = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver(
-        (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("show")),
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+          });
+        },
         { threshold: 0.12 }
       );
+
       els.forEach((el) => io.observe(el));
     })();
 
-    // ✅ "Buy" without marketplace: prefilled purchase request email
+    // ✅ Artwork data (single source of truth)
     const ARTWORKS = {
       "goodnight-cuttyhunk": {
         title: "Good Night Cuttyhunk",
         subtitle: "Oil on canvas • 24 × 36 in • $1950.00",
-        imgSrc: "goodnight-cuttyhunk.jpg",
+        imgSrc: "GoodnightCuttyhunk.png",
         imgAlt: "Good Night Cuttyhunk oil painting",
         specs: [
           "Medium: Oil on canvas",
           "Size: 24 × 36 inches",
           "Price: $1950.00",
           "Availability: Available"
-        ],
-        buyMailto:
-          "mailto:noble.art@outlook.com?subject=PURCHASE%20REQUEST%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%20would%20like%20to%20purchase%20%22Good%20Night%20Cuttyhunk%22%20(24%20x%2036%20in%2C%20oil%20on%20canvas)%20for%20%241950.%0A%0APlease%20confirm%20availability%20and%20send%20an%20invoice%20link%20(PayPal%2FSquare%2FStripe)%20plus%20shipping%20cost%20to%3A%0A%0AName%3A%20%0AShipping%20Address%3A%20%0APhone%3A%20%0A%0AThank%20you%2C",
-        inquireMailto:
-          "mailto:noble.art@outlook.com?subject=Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27d%20like%20more%20information%20about%20%22Good%20Night%20Cuttyhunk%22.%0A%0AThank%20you%2C"
+        ]
       }
     };
 
-    // Apply Buy links in the card
-    (function () {
-      document.querySelectorAll("[data-buy-link]").forEach((a) => {
-        const key = a.getAttribute("data-buy-link");
-        const art = ARTWORKS[key];
-        a.href = (art && art.buyMailto) ? art.buyMailto : "mailto:noble.art@outlook.com";
-      });
-    })();
-
-    // Modal behavior
+    // ✅ Modal + Form submit (Formspree)
     (function () {
       const backdrop = document.getElementById("artModalBackdrop");
       const btnClose = document.getElementById("artModalClose");
@@ -828,21 +1270,42 @@
       const elTitle = document.getElementById("artModalTitle");
       const elSub = document.getElementById("artModalSub");
       const elSpecs = document.getElementById("artModalSpecs");
-      const elBuy = document.getElementById("artModalBuy");
-      const elInquire = document.getElementById("artModalInquire");
 
-      function openModal(key) {
+      const form = document.getElementById("inquiryForm");
+      const formArtwork = document.getElementById("formArtwork");
+      const formRequestType = document.getElementById("formRequestType");
+      const notice = document.getElementById("formNotice");
+      const focusBtn = document.getElementById("focusFormBtn");
+
+      function openModal(key, mode) {
         const art = ARTWORKS[key];
         if (!art) return;
 
         elImg.src = art.imgSrc;
         elImg.alt = art.imgAlt || art.title;
+
         elTitle.textContent = art.title;
         elSub.textContent = art.subtitle;
+
         elSpecs.innerHTML = art.specs.map((s) => `<div>${s}</div>`).join("");
 
-        elBuy.href = art.buyMailto || "mailto:noble.art@outlook.com";
-        elInquire.href = art.inquireMailto || "mailto:noble.art@outlook.com";
+        // reset notice + form
+        notice.classList.remove("show");
+        notice.textContent = "";
+        form.reset();
+
+        // re-set hidden field after reset
+        formArtwork.value = art.title;
+
+        // default request type based on button
+        if (mode === "buy") {
+          formRequestType.value = "Purchase Request";
+        } else if (mode === "inquire") {
+          formRequestType.value = "General Inquiry";
+        } else {
+          // details mode: default to inquiry
+          formRequestType.value = "General Inquiry";
+        }
 
         backdrop.classList.add("open");
         backdrop.setAttribute("aria-hidden", "false");
@@ -860,7 +1323,10 @@
       document.addEventListener("click", (e) => {
         const btn = e.target.closest("[data-open-modal]");
         if (!btn) return;
-        openModal(btn.getAttribute("data-open-modal"));
+
+        const key = btn.getAttribute("data-open-modal");
+        const mode = btn.getAttribute("data-mode") || "details";
+        openModal(key, mode);
       });
 
       btnClose.addEventListener("click", closeModal);
@@ -872,6 +1338,42 @@
 
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && backdrop.classList.contains("open")) closeModal();
+      });
+
+      focusBtn.addEventListener("click", () => {
+        form.querySelector("select, input, textarea")?.focus();
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Honeypot filled -> silently drop
+        const gotcha = form.querySelector('input[name="_gotcha"]');
+        if (gotcha && gotcha.value) return;
+
+        const formData = new FormData(form);
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok) {
+            notice.textContent = "Thank you — your message was sent. We’ll reply soon.";
+            notice.classList.add("show");
+            form.reset();
+            formArtwork.value = document.getElementById("artModalTitle").textContent || "";
+            formRequestType.value = "General Inquiry";
+          } else {
+            notice.textContent = "Sorry — something went wrong sending your message. Please try again.";
+            notice.classList.add("show");
+          }
+        } catch (err) {
+          notice.textContent = "Network error — please try again.";
+          notice.classList.add("show");
+        }
       });
     })();
   </script>
