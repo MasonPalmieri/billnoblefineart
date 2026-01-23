@@ -24,15 +24,9 @@
       --ease-out: cubic-bezier(.2,.8,.2,1);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -44,15 +38,8 @@
       overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
     /* Subtle ambient grain overlay */
     body::before {
@@ -70,8 +57,7 @@
     /* NAVBAR */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       z-index: 1000;
       background: rgba(243, 228, 208, 0.85);
@@ -115,10 +101,7 @@
       opacity: 0.92;
       transition: opacity 0.2s var(--ease-out);
     }
-
-    nav a:hover {
-      opacity: 1;
-    }
+    nav a:hover { opacity: 1; }
 
     nav a::after {
       content: "";
@@ -130,10 +113,7 @@
       background: var(--deep-navy);
       transition: width 0.22s var(--ease-out);
     }
-
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover::after { width: 100%; }
 
     /* HERO / TITLE SCREEN */
     .hero {
@@ -153,7 +133,6 @@
       overflow: hidden;
     }
 
-    /* Elegant “light sweep” */
     .hero::after {
       content: "";
       position: absolute;
@@ -234,6 +213,10 @@
         background 0.18s var(--ease-out);
       box-shadow: 0 10px 24px rgba(0,0,0,0.14);
       will-change: transform;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
     .btn-primary {
@@ -249,9 +232,7 @@
       background: rgba(243, 228, 208, 0.14);
     }
 
-    .btn-primary:hover {
-      background: #f6ead9;
-    }
+    .btn-primary:hover { background: #f6ead9; }
 
     .hero-note {
       margin-top: 1.7rem;
@@ -271,10 +252,7 @@
       padding: 3.25rem 0;
       border-bottom: 1px solid rgba(40, 50, 58, 0.08);
     }
-
-    section:last-of-type {
-      border-bottom: none;
-    }
+    section:last-of-type { border-bottom: none; }
 
     .section-heading {
       margin-bottom: 1.6rem;
@@ -294,7 +272,7 @@
 
     .section-heading p {
       font-size: 0.95rem;
-      max-width: 22rem;
+      max-width: 26rem;
       color: rgba(40, 50, 58, 0.72);
     }
 
@@ -304,10 +282,7 @@
       transform: translateY(16px);
       transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
 
     /* GALLERY */
     .gallery-grid {
@@ -344,16 +319,15 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%),
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%),
         linear-gradient(180deg, rgba(0,0,0,0.08), transparent 40%);
       opacity: 0.55;
       pointer-events: none;
       transition: opacity 0.3s var(--ease-out);
     }
 
-    .gallery-item:hover .gallery-img-wrap::after {
-      opacity: 0.75;
-    }
+    .gallery-item:hover .gallery-img-wrap::after { opacity: 0.75; }
 
     .gallery-img-wrap img {
       position: absolute;
@@ -374,9 +348,8 @@
       padding: 1rem 1.05rem 1.1rem;
       font-size: 0.95rem;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 0.65rem;
     }
 
     .gallery-meta h3 {
@@ -387,7 +360,6 @@
       color: rgba(31, 59, 77, 0.95);
     }
 
-    /* subtle underline accent on title */
     .gallery-meta h3::after {
       content: "";
       display: block;
@@ -398,6 +370,85 @@
       border-radius: 99px;
     }
 
+    .meta-lines {
+      display: grid;
+      gap: 0.25rem;
+      color: rgba(40, 50, 58, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.3rem;
+    }
+
+    .price {
+      font-weight: 700;
+      color: rgba(31, 59, 77, 0.95);
+      letter-spacing: 0.02em;
+    }
+
+    .badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(199, 133, 74, 0.95);
+      color: white;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-card {
+      border-radius: 999px;
+      padding: 0.55rem 1rem;
+      border: 1px solid rgba(31, 59, 77, 0.20);
+      background: rgba(250, 248, 244, 1);
+      color: rgba(31, 59, 77, 0.95);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.18s var(--ease-out),
+        box-shadow 0.18s var(--ease-out),
+        background 0.18s var(--ease-out);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .btn-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.10);
+      background: rgba(243, 228, 208, 0.55);
+    }
+
+    .btn-card-primary {
+      border-color: transparent;
+      background: var(--deep-navy);
+      color: white;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .btn-card-primary:hover {
+      background: rgba(31, 59, 77, 0.92);
+    }
+
     /* BIO */
     .bio-layout {
       display: grid;
@@ -406,13 +457,8 @@
       align-items: start;
     }
 
-    .bio-text p + p {
-      margin-top: 1rem;
-    }
-
-    .bio-text {
-      font-size: 1.02rem;
-    }
+    .bio-text p + p { margin-top: 1rem; }
+    .bio-text { font-size: 1.02rem; }
 
     .bio-highlight {
       margin-top: 1.35rem;
@@ -449,14 +495,8 @@
     }
 
     /* CONTACT */
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      margin-bottom: 0.65rem;
-      font-size: 1.02rem;
-    }
+    .contact { text-align: center; }
+    .contact p { margin-bottom: 0.65rem; font-size: 1.02rem; }
 
     .contact a {
       color: var(--deep-navy);
@@ -465,10 +505,7 @@
       text-underline-offset: 3px;
       transition: opacity 0.18s var(--ease-out);
     }
-
-    .contact a:hover {
-      opacity: 0.75;
-    }
+    .contact a:hover { opacity: 0.75; }
 
     /* SITE FOOTER */
     footer {
@@ -509,9 +546,107 @@
       text-underline-offset: 3px;
       transition: opacity 0.2s var(--ease-out);
     }
+    .palmweb-strip a:hover { opacity: 0.75; }
 
-    .palmweb-strip a:hover {
-      opacity: 0.75;
+    /* MODAL (Details popup) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      z-index: 2000;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      width: min(980px, 100%);
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,0.30);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      min-height: 420px;
+    }
+
+    .modal-media {
+      position: relative;
+      background: #f1f1f1;
+      min-height: 340px;
+    }
+
+    .modal-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-body {
+      padding: 1.4rem 1.35rem;
+      display: grid;
+      gap: 0.8rem;
+      align-content: start;
+    }
+
+    .modal-title {
+      font-family: "Georgia", "Times New Roman", serif;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--deep-navy);
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .modal-sub {
+      color: rgba(40, 50, 58, 0.76);
+      font-size: 0.98rem;
+    }
+
+    .modal-specs {
+      margin-top: 0.25rem;
+      padding: 0.9rem 1rem;
+      background: rgba(243, 228, 208, 0.55);
+      border-radius: 1rem;
+      display: grid;
+      gap: 0.25rem;
+      color: rgba(31, 59, 77, 0.92);
+      font-size: 0.95rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.35rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(0,0,0,0.30);
+      color: white;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: transform 0.18s var(--ease-out), background 0.18s var(--ease-out);
+      z-index: 2;
+    }
+
+    .modal-close:hover {
+      transform: translateY(-1px);
+      background: rgba(0,0,0,0.42);
     }
 
     /* MOBILE */
@@ -533,9 +668,7 @@
         min-height: 92vh;
       }
 
-      .bio-layout {
-        grid-template-columns: 1fr;
-      }
+      .bio-layout { grid-template-columns: 1fr; }
 
       .bio-portrait {
         margin: 0;
@@ -543,18 +676,17 @@
         order: -1;
       }
 
-      main {
-        padding-inline: 1rem;
-      }
+      main { padding-inline: 1rem; }
 
       .section-heading {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .section-heading p {
-        max-width: 100%;
-      }
+      .section-heading p { max-width: 100%; }
+
+      .modal { grid-template-columns: 1fr; }
+      .modal-media { min-height: 280px; }
     }
 
     /* Reduce motion for accessibility */
@@ -563,7 +695,7 @@
       .hero::after { animation: none; }
       .hero-inner { animation: none; opacity: 1; transform: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
-      .btn, .gallery-item, .gallery-img-wrap img { transition: none; }
+      .btn, .gallery-item, .gallery-img-wrap img, .btn-card { transition: none; }
     }
   </style>
 </head>
@@ -610,7 +742,61 @@
     <section id="current-gallery" class="reveal">
       <div class="section-heading">
         <h2>Current Gallery</h2>
-        <p>Coming Soon</p>
+        <p>Available works — purchase via marketplace listing or inquiry.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- ✅ FOR SALE ITEM -->
+        <article class="gallery-item">
+          <div class="badge">For Sale</div>
+
+          <div class="gallery-img-wrap">
+            <!-- If you did NOT rename the file, change src to match your exact filename -->
+            <img src="goodnight-cuttyhunk.jpg" alt="Good Night Cuttyhunk" loading="lazy" />
+          </div>
+
+          <div class="gallery-meta">
+            <div>
+              <h3>Good Night Cuttyhunk</h3>
+              <div class="meta-lines">
+                <div>Oil on canvas</div>
+                <div>24 × 36 in</div>
+              </div>
+            </div>
+
+            <div class="price-row">
+              <div class="price">$1950.00</div>
+            </div>
+
+            <div class="card-actions">
+              <button
+                class="btn-card"
+                data-open-modal="goodnight-cuttyhunk"
+                type="button"
+              >
+                Details
+              </button>
+
+              <!-- 🔗 Replace href with your actual marketplace listing URL (Etsy/Saatchi/Shopify/etc.) -->
+              <a
+                class="btn-card btn-card-primary"
+                href="https://example.com/your-marketplace-listing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy
+              </a>
+
+              <!-- Email inquiry with prefilled subject/body -->
+              <a
+                class="btn-card"
+                href="mailto:noble.art@outlook.com?subject=Purchase%20Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27m%20interested%20in%20purchasing%20%22Good%20Night%20Cuttyhunk%22%20(24x36%2C%20oil%20on%20canvas%2C%20%241950).%0A%0ACan%20you%20confirm%20availability%2C%20shipping%20cost%2C%20and%20estimated%20delivery%20timing%3F%0A%0AThank%20you%2C"
+              >
+                Inquire
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -737,7 +923,7 @@
           <div class="gallery-meta">
             <h3>Snowy Creek</h3>
           </div>
-          </article>
+        </article>
 
         <article class="gallery-item">
           <div class="gallery-img-wrap">
@@ -816,12 +1002,8 @@
       <div class="section-heading" style="justify-content: center; text-align: center;">
         <h2>Contact</h2>
       </div>
-      <p>
-        For purchases, commissions, or studio visits, please email:
-      </p>
-      <p>
-        <a href="mailto:noble.art@outlook.com">noble.art@outlook.com</a>
-      </p>
+      <p>For purchases, commissions, or studio visits, please email:</p>
+      <p><a href="mailto:noble.art@outlook.com">noble.art@outlook.com</a></p>
       <p>
         or follow on Instagram:
         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
@@ -844,6 +1026,32 @@
     <a href="mailto:mason@palmweb.net">mason@palmweb.net</a>
   </div>
 
+  <!-- ✅ DETAILS MODAL -->
+  <div class="modal-backdrop" id="artModalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="artModalTitle">
+      <div class="modal-media">
+        <button class="modal-close" id="artModalClose" type="button" aria-label="Close">×</button>
+        <img id="artModalImg" src="" alt="" />
+      </div>
+      <div class="modal-body">
+        <div class="modal-title" id="artModalTitle"></div>
+        <div class="modal-sub" id="artModalSub"></div>
+
+        <div class="modal-specs" id="artModalSpecs"></div>
+
+        <div class="modal-actions">
+          <a class="btn-card btn-card-primary" id="artModalBuy" href="#" target="_blank" rel="noopener noreferrer">Buy</a>
+          <a class="btn-card" id="artModalInquire" href="#">Inquire</a>
+          <button class="btn-card" id="artModalClose2" type="button">Close</button>
+        </div>
+
+        <div class="modal-sub" style="margin-top:0.2rem;">
+          Tip: Once the marketplace listing is live, paste the listing URL into the “Buy” link for this artwork.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -855,7 +1063,6 @@
       const dd = String(today.getDate()).padStart(2, "0");
       const todayKey = `${mm}-${dd}`;
 
-      // Map of holidays (month-day) => message
       const holidayMessages = {
         "01-01": "Happy New Year from Bill Noble!",
         "02-14": "Happy Valentine’s Day from Bill Noble!",
@@ -888,6 +1095,88 @@
       );
 
       els.forEach((el) => io.observe(el));
+    })();
+
+    // ✅ Artwork modal data (add more items here later)
+    const ARTWORKS = {
+      "goodnight-cuttyhunk": {
+        title: "Good Night Cuttyhunk",
+        subtitle: "Oil on canvas • 24 × 36 in • $1950.00",
+        imgSrc: "goodnight-cuttyhunk.jpg",
+        imgAlt: "Good Night Cuttyhunk oil painting",
+        specs: [
+          "Medium: Oil on canvas",
+          "Size: 24 × 36 inches",
+          "Price: $1950.00",
+          "Availability: Available"
+        ],
+        // 🔗 Replace with your actual Etsy/Saatchi/Shopify listing URL
+        buyUrl: "https://example.com/your-marketplace-listing",
+        inquireMailto:
+          "mailto:noble.art@outlook.com?subject=Purchase%20Inquiry%3A%20Good%20Night%20Cuttyhunk&body=Hi%20Bill%2C%0A%0AI%27m%20interested%20in%20purchasing%20%22Good%20Night%20Cuttyhunk%22%20(24x36%2C%20oil%20on%20canvas%2C%20%241950).%0A%0ACan%20you%20confirm%20availability%2C%20shipping%20cost%2C%20and%20estimated%20delivery%20timing%3F%0A%0AThank%20you%2C"
+      }
+    };
+
+    // ✅ Modal behavior
+    (function () {
+      const backdrop = document.getElementById("artModalBackdrop");
+      const btnClose = document.getElementById("artModalClose");
+      const btnClose2 = document.getElementById("artModalClose2");
+
+      const elImg = document.getElementById("artModalImg");
+      const elTitle = document.getElementById("artModalTitle");
+      const elSub = document.getElementById("artModalSub");
+      const elSpecs = document.getElementById("artModalSpecs");
+      const elBuy = document.getElementById("artModalBuy");
+      const elInquire = document.getElementById("artModalInquire");
+
+      function openModal(key) {
+        const art = ARTWORKS[key];
+        if (!art) return;
+
+        elImg.src = art.imgSrc;
+        elImg.alt = art.imgAlt || art.title;
+
+        elTitle.textContent = art.title;
+        elSub.textContent = art.subtitle;
+
+        elSpecs.innerHTML = art.specs.map((s) => `<div>${s}</div>`).join("");
+
+        elBuy.href = art.buyUrl || "#";
+        elInquire.href = art.inquireMailto || "mailto:noble.art@outlook.com";
+
+        backdrop.classList.add("open");
+        backdrop.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        backdrop.classList.remove("open");
+        backdrop.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        // clear image to avoid loading if user opens/close a lot
+        elImg.src = "";
+        elImg.alt = "";
+      }
+
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-open-modal]");
+        if (!btn) return;
+        const key = btn.getAttribute("data-open-modal");
+        openModal(key);
+      });
+
+      btnClose.addEventListener("click", closeModal);
+      btnClose2.addEventListener("click", closeModal);
+
+      backdrop.addEventListener("click", (e) => {
+        // Click outside modal closes
+        if (e.target === backdrop) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && backdrop.classList.contains("open")) closeModal();
+      });
     })();
   </script>
 </body>
