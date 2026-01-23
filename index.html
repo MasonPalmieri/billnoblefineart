@@ -24,15 +24,8 @@
       --ease-out: cubic-bezier(.2,.8,.2,1);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -44,15 +37,8 @@
       overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
     /* Subtle ambient grain overlay */
     body::before {
@@ -116,9 +102,7 @@
       transition: opacity 0.2s var(--ease-out);
     }
 
-    nav a:hover {
-      opacity: 1;
-    }
+    nav a:hover { opacity: 1; }
 
     nav a::after {
       content: "";
@@ -131,9 +115,7 @@
       transition: width 0.22s var(--ease-out);
     }
 
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover::after { width: 100%; }
 
     /* HERO / TITLE SCREEN */
     .hero {
@@ -153,7 +135,6 @@
       overflow: hidden;
     }
 
-    /* Elegant “light sweep” */
     .hero::after {
       content: "";
       position: absolute;
@@ -183,9 +164,7 @@
       animation: heroEnter 1.2s var(--ease-out) forwards;
     }
 
-    @keyframes heroEnter {
-      to { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes heroEnter { to { transform: translateY(0); opacity: 1; } }
 
     .hero-kicker {
       text-transform: uppercase;
@@ -253,9 +232,7 @@
       background: rgba(243, 228, 208, 0.14);
     }
 
-    .btn-primary:hover {
-      background: #f6ead9;
-    }
+    .btn-primary:hover { background: #f6ead9; }
 
     .hero-note {
       margin-top: 1.7rem;
@@ -276,9 +253,7 @@
       border-bottom: 1px solid rgba(40, 50, 58, 0.08);
     }
 
-    section:last-of-type {
-      border-bottom: none;
-    }
+    section:last-of-type { border-bottom: none; }
 
     .section-heading {
       margin-bottom: 1.6rem;
@@ -302,16 +277,13 @@
       color: rgba(40, 50, 58, 0.72);
     }
 
-    /* Scroll reveal (applied by JS) */
+    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
 
     /* GALLERY */
     .gallery-grid {
@@ -348,16 +320,15 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%),
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%),
         linear-gradient(180deg, rgba(0,0,0,0.08), transparent 40%);
       opacity: 0.55;
       pointer-events: none;
       transition: opacity 0.3s var(--ease-out);
     }
 
-    .gallery-item:hover .gallery-img-wrap::after {
-      opacity: 0.75;
-    }
+    .gallery-item:hover .gallery-img-wrap::after { opacity: 0.75; }
 
     .gallery-img-wrap img {
       position: absolute;
@@ -384,13 +355,11 @@
 
     .gallery-meta h3 {
       font-size: 1rem;
-      margin-bottom: 0;
       font-weight: 600;
       letter-spacing: 0.01em;
       color: rgba(31, 59, 77, 0.95);
     }
 
-    /* subtle underline accent on title */
     .gallery-meta h3::after {
       content: "";
       display: block;
@@ -476,9 +445,7 @@
       box-shadow: 0 14px 28px rgba(0,0,0,0.12);
     }
 
-    .btn-card-primary:hover {
-      background: rgba(31, 59, 77, 0.92);
-    }
+    .btn-card-primary:hover { background: rgba(31, 59, 77, 0.92); }
 
     /* BIO */
     .bio-layout {
@@ -488,13 +455,8 @@
       align-items: start;
     }
 
-    .bio-text p + p {
-      margin-top: 1rem;
-    }
-
-    .bio-text {
-      font-size: 1.02rem;
-    }
+    .bio-text p + p { margin-top: 1rem; }
+    .bio-text { font-size: 1.02rem; }
 
     .bio-highlight {
       margin-top: 1.35rem;
@@ -531,15 +493,8 @@
     }
 
     /* CONTACT */
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      margin-bottom: 0.65rem;
-      font-size: 1.02rem;
-    }
-
+    .contact { text-align: center; }
+    .contact p { margin-bottom: 0.65rem; font-size: 1.02rem; }
     .contact a {
       color: var(--deep-navy);
       text-decoration: underline;
@@ -547,10 +502,7 @@
       text-underline-offset: 3px;
       transition: opacity 0.18s var(--ease-out);
     }
-
-    .contact a:hover {
-      opacity: 0.75;
-    }
+    .contact a:hover { opacity: 0.75; }
 
     /* SITE FOOTER */
     footer {
@@ -592,9 +544,7 @@
       transition: opacity 0.2s var(--ease-out);
     }
 
-    .palmweb-strip a:hover {
-      opacity: 0.75;
-    }
+    .palmweb-strip a:hover { opacity: 0.75; }
 
     /* ✅ MODAL */
     .modal-backdrop {
@@ -608,9 +558,7 @@
       z-index: 2000;
     }
 
-    .modal-backdrop.open {
-      display: flex;
-    }
+    .modal-backdrop.open { display: flex; }
 
     .modal {
       width: min(980px, 100%);
@@ -715,9 +663,7 @@
       font-size: 0.95rem;
     }
 
-    .notice.show {
-      display: block;
-    }
+    .notice.show { display: block; }
 
     .form {
       margin-top: 0.35rem;
@@ -748,10 +694,7 @@
       color: rgba(31, 59, 77, 0.95);
     }
 
-    .textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
+    .textarea { min-height: 110px; resize: vertical; }
 
     /* Honeypot field (hidden) */
     .hp-field {
@@ -764,56 +707,19 @@
 
     /* MOBILE */
     @media (max-width: 720px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-
-      nav ul {
-        gap: 1rem;
-        font-size: 0.78rem;
-        flex-wrap: wrap;
-      }
-
-      .hero {
-        padding-top: 8.5rem;
-        min-height: 92vh;
-      }
-
-      .bio-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .bio-portrait {
-        margin: 0;
-        max-width: 100%;
-        order: -1;
-      }
-
-      main {
-        padding-inline: 1rem;
-      }
-
-      .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .section-heading p {
-        max-width: 100%;
-      }
-
-      .modal {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-media {
-        min-height: 280px;
-      }
+      .nav-container { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      nav ul { gap: 1rem; font-size: 0.78rem; flex-wrap: wrap; }
+      .hero { padding-top: 8.5rem; min-height: 92vh; }
+      .bio-layout { grid-template-columns: 1fr; }
+      .bio-portrait { margin: 0; max-width: 100%; order: -1; }
+      main { padding-inline: 1rem; }
+      .section-heading { flex-direction: column; align-items: flex-start; }
+      .section-heading p { max-width: 100%; }
+      .modal { grid-template-columns: 1fr; }
+      .modal-media { min-height: 280px; }
     }
 
-    /* Reduce motion for accessibility */
+    /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .hero::after { animation: none; }
@@ -855,9 +761,7 @@
         <a href="#bio" class="btn">About the Artist</a>
       </div>
 
-      <p class="hero-note">
-        Commissions by request • Studio visits by appointment
-      </p>
+      <p class="hero-note">Commissions by request • Studio visits by appointment</p>
     </div>
   </section>
 
@@ -875,8 +779,14 @@
           <div class="badge">For Sale</div>
 
           <div class="gallery-img-wrap">
-            <!-- If your filename differs, change it here (example: GoodnightCuttyhunk.png) -->
-            <img src="GoodnightCuttyhunk.png" alt="Good Night Cuttyhunk" loading="lazy" />
+            <!-- ✅ Auto-fallback tries multiple filename candidates -->
+            <img
+              id="goodnightCuttyhunkCardImg"
+              data-src-candidates="goodnight-cuttyhunk.png,GoodnightCuttyhunk.png,GoodnightCuttyhunk.PNG,goodnight-cuttyhunk.jpg,GoodnightCuttyhunk.jpg,GoodnightCuttyhunk.jpeg,goodnight-cuttyhunk.jpeg,GoodnightCuttyhunk.webp,goodnight-cuttyhunk.webp"
+              src="goodnight-cuttyhunk.png"
+              alt="Good Night Cuttyhunk"
+              loading="lazy"
+            />
           </div>
 
           <div class="gallery-meta">
@@ -910,140 +820,21 @@
       </div>
 
       <div class="gallery-grid">
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="BeachAccess.png" alt="Beach Access" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Beach Access</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="BogSunset.png" alt="Bog Sunset" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Bog Sunset</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="Cape.png" alt="Cape" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Cape</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="Chappy.png" alt="Chappy" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Chappy</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="Industrial.png" alt="Industrial" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Industrial</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="Marketplace.png" alt="Marketplace" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Marketplace</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="NewSeaburyCC.png" alt="New Seabury CC" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>New Seabury CC</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="NShoreCottage1.png" alt="North Shore Cottage" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>North Shore Cottage</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="ParisRiverboat.png" alt="Paris Riverboat" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Paris Riverboat</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="SailboatBeach.png" alt="Sailboat Beach" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Sailboat Beach</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="SailboatSunset.png" alt="Sailboat Sunset" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Sailboat Sunset</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="SailCrew.png" alt="Sail Crew" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Sail Crew</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="SnowyCreek.png" alt="Snowy Creek" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Snowy Creek</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="SummerHouse.png" alt="Summer House" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Summer House</h3>
-          </div>
-        </article>
-
-        <article class="gallery-item">
-          <div class="gallery-img-wrap">
-            <img src="TownSquare.png" alt="Town Square" loading="lazy" />
-          </div>
-          <div class="gallery-meta">
-            <h3>Town Square</h3>
-          </div>
-        </article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="BeachAccess.png" alt="Beach Access" loading="lazy" /></div><div class="gallery-meta"><h3>Beach Access</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="BogSunset.png" alt="Bog Sunset" loading="lazy" /></div><div class="gallery-meta"><h3>Bog Sunset</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Cape.png" alt="Cape" loading="lazy" /></div><div class="gallery-meta"><h3>Cape</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Chappy.png" alt="Chappy" loading="lazy" /></div><div class="gallery-meta"><h3>Chappy</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Industrial.png" alt="Industrial" loading="lazy" /></div><div class="gallery-meta"><h3>Industrial</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="Marketplace.png" alt="Marketplace" loading="lazy" /></div><div class="gallery-meta"><h3>Marketplace</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="NewSeaburyCC.png" alt="New Seabury CC" loading="lazy" /></div><div class="gallery-meta"><h3>New Seabury CC</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="NShoreCottage1.png" alt="North Shore Cottage" loading="lazy" /></div><div class="gallery-meta"><h3>North Shore Cottage</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="ParisRiverboat.png" alt="Paris Riverboat" loading="lazy" /></div><div class="gallery-meta"><h3>Paris Riverboat</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SailboatBeach.png" alt="Sailboat Beach" loading="lazy" /></div><div class="gallery-meta"><h3>Sailboat Beach</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SailboatSunset.png" alt="Sailboat Sunset" loading="lazy" /></div><div class="gallery-meta"><h3>Sailboat Sunset</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SailCrew.png" alt="Sail Crew" loading="lazy" /></div><div class="gallery-meta"><h3>Sail Crew</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SnowyCreek.png" alt="Snowy Creek" loading="lazy" /></div><div class="gallery-meta"><h3>Snowy Creek</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="SummerHouse.png" alt="Summer House" loading="lazy" /></div><div class="gallery-meta"><h3>Summer House</h3></div></article>
+        <article class="gallery-item"><div class="gallery-img-wrap"><img src="TownSquare.png" alt="Town Square" loading="lazy" /></div><div class="gallery-meta"><h3>Town Square</h3></div></article>
       </div>
     </section>
 
@@ -1070,21 +861,10 @@
             in private collections throughout the United States.
           </p>
 
-          <p>
-            He teaches oil painting at the Falmouth Art Center where he is a lifetime member and former member of the Board of Directors.
-          </p>
-
-          <p>
-            In 2015, Bill submitted a Portfolio to Les Amis in Dinan, France and was chosen to serve a 30-day artist in residence in 2016.
-          </p>
-
-          <p>
-            His work has been exhibited in many prestigious venues including the Cahoon Museum of American Art, Highfield Hall, Attleboro Art Museum, and Cape Cod Cultural Center.
-          </p>
-
-          <p>
-            He has won numerous awards and honors for his work which can be found in many private and corporate collections around the world.
-          </p>
+          <p>He teaches oil painting at the Falmouth Art Center where he is a lifetime member and former member of the Board of Directors.</p>
+          <p>In 2015, Bill submitted a Portfolio to Les Amis in Dinan, France and was chosen to serve a 30-day artist in residence in 2016.</p>
+          <p>His work has been exhibited in many prestigious venues including the Cahoon Museum of American Art, Highfield Hall, Attleboro Art Museum, and Cape Cod Cultural Center.</p>
+          <p>He has won numerous awards and honors for his work which can be found in many private and corporate collections around the world.</p>
 
           <div class="bio-highlight">
             <strong>Artist statement:</strong>
@@ -1104,12 +884,8 @@
       <div class="section-heading" style="justify-content: center; text-align: center;">
         <h2>Contact</h2>
       </div>
-      <p>
-        For purchases, commissions, or studio visits, please email:
-      </p>
-      <p>
-        <a href="mailto:noble.art@outlook.com">noble.art@outlook.com</a>
-      </p>
+      <p>For purchases, commissions, or studio visits, please email:</p>
+      <p><a href="mailto:noble.art@outlook.com">noble.art@outlook.com</a></p>
       <p>
         or follow on Instagram:
         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
@@ -1157,9 +933,8 @@
 
         <div class="notice" id="formNotice"></div>
 
-        <!-- ✅ Formspree endpoint set here -->
+        <!-- ✅ Formspree endpoint -->
         <form class="form" id="inquiryForm" method="POST" action="https://formspree.io/f/maqedaar">
-          <!-- Hidden: which artwork -->
           <input type="hidden" name="artwork" id="formArtwork" value="" />
 
           <!-- Honeypot -->
@@ -1199,7 +974,7 @@
   </div>
 
   <script>
-    // Set current year in footer
+    // Set current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Holiday popup (shows EVERY page load on holidays)
@@ -1209,7 +984,6 @@
       const dd = String(today.getDate()).padStart(2, "0");
       const todayKey = `${mm}-${dd}`;
 
-      // Map of holidays (month-day) => message
       const holidayMessages = {
         "01-01": "Happy New Year from Bill Noble!",
         "02-14": "Happy Valentine’s Day from Bill Noble!",
@@ -1225,7 +999,6 @@
 
       const message = holidayMessages[todayKey];
       if (!message) return;
-
       alert(message);
     })();
 
@@ -1240,8 +1013,39 @@
         },
         { threshold: 0.12 }
       );
-
       els.forEach((el) => io.observe(el));
+    })();
+
+    // ✅ Image fallback helper
+    function setImgWithFallback(imgEl, candidates) {
+      if (!imgEl) return;
+      const list = (Array.isArray(candidates) ? candidates : [])
+        .map(s => String(s || "").trim())
+        .filter(Boolean);
+
+      if (!list.length) return;
+
+      // Avoid infinite loops
+      let idx = 0;
+      imgEl.src = list[idx];
+
+      imgEl.onerror = () => {
+        idx += 1;
+        if (idx >= list.length) {
+          imgEl.onerror = null;
+          return;
+        }
+        imgEl.src = list[idx];
+      };
+    }
+
+    // Apply fallback to any img with data-src-candidates
+    (function () {
+      document.querySelectorAll("img[data-src-candidates]").forEach((img) => {
+        const raw = img.getAttribute("data-src-candidates") || "";
+        const candidates = raw.split(",").map(s => s.trim()).filter(Boolean);
+        setImgWithFallback(img, candidates);
+      });
     })();
 
     // ✅ Artwork data (single source of truth)
@@ -1249,7 +1053,17 @@
       "goodnight-cuttyhunk": {
         title: "Good Night Cuttyhunk",
         subtitle: "Oil on canvas • 24 × 36 in • $1950.00",
-        imgSrc: "GoodnightCuttyhunk.png",
+        imgCandidates: [
+          "goodnight-cuttyhunk.png",
+          "GoodnightCuttyhunk.png",
+          "GoodnightCuttyhunk.PNG",
+          "goodnight-cuttyhunk.jpg",
+          "GoodnightCuttyhunk.jpg",
+          "GoodnightCuttyhunk.jpeg",
+          "goodnight-cuttyhunk.jpeg",
+          "GoodnightCuttyhunk.webp",
+          "goodnight-cuttyhunk.webp"
+        ],
         imgAlt: "Good Night Cuttyhunk oil painting",
         specs: [
           "Medium: Oil on canvas",
@@ -1281,13 +1095,13 @@
         const art = ARTWORKS[key];
         if (!art) return;
 
-        elImg.src = art.imgSrc;
-        elImg.alt = art.imgAlt || art.title;
-
         elTitle.textContent = art.title;
         elSub.textContent = art.subtitle;
 
         elSpecs.innerHTML = art.specs.map((s) => `<div>${s}</div>`).join("");
+
+        elImg.alt = art.imgAlt || art.title;
+        setImgWithFallback(elImg, art.imgCandidates || []);
 
         // reset notice + form
         notice.classList.remove("show");
@@ -1298,14 +1112,9 @@
         formArtwork.value = art.title;
 
         // default request type based on button
-        if (mode === "buy") {
-          formRequestType.value = "Purchase Request";
-        } else if (mode === "inquire") {
-          formRequestType.value = "General Inquiry";
-        } else {
-          // details mode: default to inquiry
-          formRequestType.value = "General Inquiry";
-        }
+        if (mode === "buy") formRequestType.value = "Purchase Request";
+        else if (mode === "inquire") formRequestType.value = "General Inquiry";
+        else formRequestType.value = "General Inquiry";
 
         backdrop.classList.add("open");
         backdrop.setAttribute("aria-hidden", "false");
