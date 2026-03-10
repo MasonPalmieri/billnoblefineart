@@ -6,50 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
 :root{
---sea-blue:#437ea0;
---deep-navy:#1f3b4d;
+--navy:#1f3b4d;
 --sand:#f3e4d0;
 --offwhite:#faf8f4;
---accent:#c7854a;
---text-dark:#28323a;
---shadow-soft:0 12px 30px rgba(0,0,0,0.08);
---shadow-strong:0 18px 55px rgba(0,0,0,0.18);
---radius-xl:1.5rem;
---radius-lg:1rem;
---radius-md:0.75rem;
---ease-out:cubic-bezier(.2,.8,.2,1);
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
 
 body{
-font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-family:system-ui,-apple-system,Segoe UI,sans-serif;
 background:var(--offwhite);
-color:var(--text-dark);
-line-height:1.7;
-overflow-x:hidden;
+color:#28323a;
+line-height:1.6;
 }
 
 a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
 
 header{
 position:fixed;
 top:0;
-left:0;
 width:100%;
-z-index:1000;
-background:rgba(243,228,208,0.9);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(31,59,77,0.12);
+background:rgba(243,228,208,.95);
+border-bottom:1px solid rgba(0,0,0,.08);
+z-index:10;
 }
 
 .nav-container{
 max-width:1100px;
 margin:auto;
-padding:.9rem 1.5rem;
+padding:12px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -59,77 +46,68 @@ align-items:center;
 font-family:Georgia,serif;
 letter-spacing:.08em;
 text-transform:uppercase;
+font-size:15px;
 }
 
 nav ul{
 list-style:none;
 display:flex;
-gap:1.4rem;
-font-size:.85rem;
+gap:18px;
+font-size:13px;
 text-transform:uppercase;
-letter-spacing:.12em;
+letter-spacing:.08em;
 }
 
 .hero{
-min-height:92vh;
+height:55vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:7rem 1.5rem 3rem;
-background:
-linear-gradient(rgba(31,59,77,.82),rgba(67,126,160,.82)),
-url("Chappy.png") center/cover no-repeat;
-color:white;
 text-align:center;
+color:white;
+background:
+linear-gradient(rgba(31,59,77,.85),rgba(31,59,77,.85)),
+url("Chappy.png") center/cover no-repeat;
+padding-top:60px;
 }
 
-.hero-title{
+.hero h1{
 font-family:Georgia,serif;
-font-size:clamp(2.5rem,5vw,3.6rem);
-letter-spacing:.2em;
-text-transform:uppercase;
-margin-bottom:1rem;
+font-size:48px;
+letter-spacing:.18em;
+margin-bottom:15px;
 }
 
-.hero-subtitle{
+.hero p{
 max-width:600px;
 margin:auto;
-margin-bottom:2rem;
+margin-bottom:25px;
 }
 
 .btn{
-padding:.8rem 1.6rem;
-border-radius:999px;
-border:1px solid white;
-font-size:.85rem;
+display:inline-block;
+padding:10px 22px;
+background:var(--sand);
+border-radius:30px;
+font-size:13px;
 letter-spacing:.1em;
 text-transform:uppercase;
-cursor:pointer;
-background:transparent;
-color:white;
-}
-
-.btn-primary{
-background:var(--sand);
-color:var(--deep-navy);
-border:none;
 }
 
 main{
 max-width:1100px;
 margin:auto;
-padding:3rem 1.5rem 4rem;
+padding:50px 20px;
 }
 
 section{
-padding:3rem 0;
-border-bottom:1px solid rgba(40,50,58,.08);
+margin-bottom:70px;
 }
 
 .section-heading{
 display:flex;
 justify-content:space-between;
-margin-bottom:1.5rem;
+margin-bottom:25px;
 }
 
 .section-heading h2{
@@ -140,61 +118,56 @@ text-transform:uppercase;
 
 .gallery-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:1.6rem;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
 .gallery-item{
 background:white;
-border-radius:var(--radius-lg);
+border-radius:12px;
 overflow:hidden;
-box-shadow:var(--shadow-soft);
-display:flex;
-flex-direction:column;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.gallery-img-wrap{
-position:relative;
-padding-top:70%;
+.gallery-img{
+height:260px;
 overflow:hidden;
 }
 
-.gallery-img-wrap img{
-position:absolute;
+.gallery-img img{
 width:100%;
 height:100%;
 object-fit:cover;
 }
 
 .gallery-meta{
-padding:1rem;
+padding:16px;
 display:flex;
 flex-direction:column;
-gap:.6rem;
+gap:8px;
 }
 
 .price{
-font-weight:700;
+font-weight:bold;
 }
 
-.card-actions{
+.actions{
 display:flex;
-gap:.5rem;
-flex-wrap:wrap;
+gap:8px;
+margin-top:8px;
 }
 
-.btn-card{
-border-radius:999px;
-padding:.5rem .9rem;
-border:1px solid rgba(31,59,77,.2);
-background:white;
+.btn-small{
+padding:8px 14px;
+border-radius:20px;
+font-size:12px;
+border:1px solid #ccc;
 cursor:pointer;
-font-size:.75rem;
-text-transform:uppercase;
+background:white;
 }
 
-.btn-card-primary{
-background:var(--deep-navy);
+.buy{
+background:var(--navy);
 color:white;
 border:none;
 }
@@ -202,104 +175,45 @@ border:none;
 .bio-layout{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:2rem;
+gap:40px;
 }
 
-.bio-portrait img{
-border-radius:1rem;
-box-shadow:var(--shadow-strong);
+.bio-layout img{
+width:100%;
+border-radius:12px;
 }
 
-.contact{text-align:center;}
+.contact{
+text-align:center;
+}
 
 footer{
-padding:1.5rem;
 text-align:center;
-font-size:.85rem;
+padding:25px;
 background:#f6efe5;
+font-size:13px;
 }
 
-.palmweb-strip{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-font-size:12px;
-padding:14px;
-border-top:1px solid rgba(31,59,77,.15);
+@media(max-width:700px){
+
+.hero h1{font-size:36px;}
+
+.bio-layout{
+grid-template-columns:1fr;
 }
 
-.palmweb-strip img{
-width:26px;
-height:26px;
 }
 
-.modal-backdrop{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.6);
-display:none;
-align-items:center;
-justify-content:center;
-padding:1rem;
-z-index:2000;
-}
-
-.modal-backdrop.open{display:flex;}
-
-.modal{
-background:white;
-border-radius:1.2rem;
-max-width:900px;
-width:100%;
-display:grid;
-grid-template-columns:1fr 1fr;
-overflow:hidden;
-}
-
-.modal-media img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.modal-body{
-padding:1.3rem;
-display:grid;
-gap:.8rem;
-}
-
-.modal-title{
-font-family:Georgia,serif;
-letter-spacing:.1em;
-text-transform:uppercase;
-}
-
-.modal-close{
-position:absolute;
-top:12px;
-right:12px;
-border:none;
-background:rgba(0,0,0,.5);
-color:white;
-width:38px;
-height:38px;
-border-radius:999px;
-cursor:pointer;
-}
-
-@media(max-width:720px){
-.bio-layout{grid-template-columns:1fr;}
-.modal{grid-template-columns:1fr;}
-}
 </style>
 </head>
+
 
 <body>
 
 <header>
 <div class="nav-container">
 <div class="logo">Bill Noble Fine Art</div>
+
 <nav>
 <ul>
 <li><a href="#current-gallery">Current Gallery</a></li>
@@ -311,20 +225,25 @@ cursor:pointer;
 </div>
 </header>
 
+
 <section class="hero">
 <div>
-<h1 class="hero-title">Bill Noble Fine Art</h1>
-<p class="hero-subtitle">
+<h1>BILL NOBLE FINE ART</h1>
+<p>
 Coastal light, quiet harbors, and New England villages —
 paintings inspired by Cape Cod and the Atlantic shore.
 </p>
-<a href="#archives" class="btn btn-primary">View Archives</a>
+
+<a href="#archives" class="btn">View Archives</a>
 </div>
 </section>
 
+
 <main>
 
+
 <section id="current-gallery">
+
 <div class="section-heading">
 <h2>Current Gallery</h2>
 <p>Available works</p>
@@ -332,57 +251,67 @@ paintings inspired by Cape Cod and the Atlantic shore.
 
 <div class="gallery-grid">
 
+
 <article class="gallery-item">
-<div class="gallery-img-wrap">
-<img src="goodnight-cuttyhunk.png">
+
+<div class="gallery-img">
+<img src="GoodnightCuttyhunk.jpg">
 </div>
 
 <div class="gallery-meta">
+
 <h3>Good Night Cuttyhunk</h3>
+
 <div>Oil on canvas</div>
 <div>24 × 36 in</div>
 
 <div class="price">$1950</div>
 
-<div class="card-actions">
-<button class="btn-card" data-open-modal="goodnight-cuttyhunk">Details</button>
+<div class="actions">
 
-<a href="https://buy.stripe.com/8x2aEW32ggEucwkfmE3Nm00" class="btn-card btn-card-primary">
+<a href="https://buy.stripe.com/8x2aEW32ggEucwkfmE3Nm00"
+class="btn-small buy">
 Buy
 </a>
 
-<button class="btn-card" data-open-modal="goodnight-cuttyhunk">Inquire</button>
 </div>
+
 </div>
+
 </article>
 
 
 <article class="gallery-item">
-<div class="gallery-img-wrap">
+
+<div class="gallery-img">
 <img src="Marshland.png">
 </div>
 
 <div class="gallery-meta">
+
 <h3>Waquoit Bay</h3>
+
 <div>Oil on linen panel</div>
 <div>11 × 14 in</div>
 
 <div class="price">$595</div>
 
-<div class="card-actions">
-<button class="btn-card" data-open-modal="marshland">Details</button>
+<div class="actions">
 
 <a href="https://buy.stripe.com/dRm28q46kewmgMAcas3Nm02"
-class="btn-card btn-card-primary">
+class="btn-small buy">
 Buy
 </a>
 
-<button class="btn-card" data-open-modal="marshland">Inquire</button>
 </div>
-</div>
-</article>
 
 </div>
+
+</article>
+
+
+</div>
+
 </section>
 
 
@@ -424,9 +353,10 @@ Buy
 <div class="bio-layout">
 
 <div>
+
 <p>
 Bill Noble is a New England painter whose work explores
-coastal light and atmosphere throughout Cape Cod.
+the atmosphere and coastal light of Cape Cod.
 </p>
 
 <p>
@@ -438,9 +368,10 @@ Highfield Hall, Attleboro Art Museum and Cape Cod Cultural Center.
 Bill teaches oil painting at the Falmouth Art Center where he is
 a lifetime member and former board member.
 </p>
+
 </div>
 
-<div class="bio-portrait">
+<div>
 <img src="BillStudio.png">
 </div>
 
@@ -469,6 +400,7 @@ Instagram:
 
 </section>
 
+
 </main>
 
 
@@ -477,71 +409,10 @@ Instagram:
 </footer>
 
 
-<div class="palmweb-strip">
-<img src="logo.png">
-<span>
-Website by <a href="https://palmweb.net">PalmWeb</a>
-</span>
-<span>•</span>
-<a href="mailto:mason@palmweb.net">mason@palmweb.net</a>
-</div>
-
-
-<div class="modal-backdrop" id="modal">
-
-<div class="modal">
-
-<div class="modal-media">
-<img id="modalImg">
-</div>
-
-<div class="modal-body">
-
-<h3 class="modal-title" id="modalTitle"></h3>
-<p id="modalInfo"></p>
-
-</div>
-
-</div>
-
-</div>
-
-
 <script>
-
 document.getElementById("year").textContent=new Date().getFullYear();
-
-const artworks={
-"goodnight-cuttyhunk":{
-title:"Good Night Cuttyhunk",
-info:"Oil on canvas • 24×36 • $1950",
-img:"goodnight-cuttyhunk.png"
-},
-"marshland":{
-title:"Waquoit Bay",
-info:"Oil on linen panel • 11×14 • $595",
-img:"Marshland.png"
-}
-}
-
-const modal=document.getElementById("modal")
-
-document.querySelectorAll("[data-open-modal]").forEach(btn=>{
-btn.onclick=()=>{
-const art=artworks[btn.dataset.openModal]
-document.getElementById("modalTitle").textContent=art.title
-document.getElementById("modalInfo").textContent=art.info
-document.getElementById("modalImg").src=art.img
-modal.classList.add("open")
-}
-})
-
-modal.onclick=e=>{
-if(e.target===modal)
-modal.classList.remove("open")
-}
-
 </script>
+
 
 </body>
 </html>
